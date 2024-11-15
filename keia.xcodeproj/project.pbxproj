@@ -24,25 +24,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17BCDC162CE3D74B00335BCD /* afp-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "afp-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17BCDC262CE3D74C00335BCD /* afp-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "afp-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17BCDC302CE3D74C00335BCD /* afp-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "afp-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BCDC162CE3D74B00335BCD /* keia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BCDC262CE3D74C00335BCD /* keiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BCDC302CE3D74C00335BCD /* keiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		17BCDC182CE3D74B00335BCD /* afp-app */ = {
+		17BCDC182CE3D74B00335BCD /* keia */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "afp-app";
+			path = keia;
 			sourceTree = "<group>";
 		};
-		17BCDC292CE3D74C00335BCD /* afp-appTests */ = {
+		17BCDC292CE3D74C00335BCD /* keiaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "afp-appTests";
+			path = keiaTests;
 			sourceTree = "<group>";
 		};
-		17BCDC332CE3D74C00335BCD /* afp-appUITests */ = {
+		17BCDC332CE3D74C00335BCD /* keiaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "afp-appUITests";
+			path = keiaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		17BCDC0D2CE3D74B00335BCD = {
 			isa = PBXGroup;
 			children = (
-				17BCDC182CE3D74B00335BCD /* afp-app */,
-				17BCDC292CE3D74C00335BCD /* afp-appTests */,
-				17BCDC332CE3D74C00335BCD /* afp-appUITests */,
+				17BCDC182CE3D74B00335BCD /* keia */,
+				17BCDC292CE3D74C00335BCD /* keiaTests */,
+				17BCDC332CE3D74C00335BCD /* keiaUITests */,
 				17BCDC172CE3D74B00335BCD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		17BCDC172CE3D74B00335BCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				17BCDC162CE3D74B00335BCD /* afp-app.app */,
-				17BCDC262CE3D74C00335BCD /* afp-appTests.xctest */,
-				17BCDC302CE3D74C00335BCD /* afp-appUITests.xctest */,
+				17BCDC162CE3D74B00335BCD /* keia.app */,
+				17BCDC262CE3D74C00335BCD /* keiaTests.xctest */,
+				17BCDC302CE3D74C00335BCD /* keiaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		17BCDC152CE3D74B00335BCD /* afp-app */ = {
+		17BCDC152CE3D74B00335BCD /* keia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17BCDC3A2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-app" */;
+			buildConfigurationList = 17BCDC3A2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keia" */;
 			buildPhases = (
 				17BCDC122CE3D74B00335BCD /* Sources */,
 				17BCDC132CE3D74B00335BCD /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				17BCDC182CE3D74B00335BCD /* afp-app */,
+				17BCDC182CE3D74B00335BCD /* keia */,
 			);
-			name = "afp-app";
+			name = keia;
 			packageProductDependencies = (
 			);
 			productName = "afp-app";
-			productReference = 17BCDC162CE3D74B00335BCD /* afp-app.app */;
+			productReference = 17BCDC162CE3D74B00335BCD /* keia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		17BCDC252CE3D74C00335BCD /* afp-appTests */ = {
+		17BCDC252CE3D74C00335BCD /* keiaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17BCDC3D2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-appTests" */;
+			buildConfigurationList = 17BCDC3D2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keiaTests" */;
 			buildPhases = (
 				17BCDC222CE3D74C00335BCD /* Sources */,
 				17BCDC232CE3D74C00335BCD /* Frameworks */,
@@ -131,18 +131,18 @@
 				17BCDC282CE3D74C00335BCD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				17BCDC292CE3D74C00335BCD /* afp-appTests */,
+				17BCDC292CE3D74C00335BCD /* keiaTests */,
 			);
-			name = "afp-appTests";
+			name = keiaTests;
 			packageProductDependencies = (
 			);
 			productName = "afp-appTests";
-			productReference = 17BCDC262CE3D74C00335BCD /* afp-appTests.xctest */;
+			productReference = 17BCDC262CE3D74C00335BCD /* keiaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		17BCDC2F2CE3D74C00335BCD /* afp-appUITests */ = {
+		17BCDC2F2CE3D74C00335BCD /* keiaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17BCDC402CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-appUITests" */;
+			buildConfigurationList = 17BCDC402CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keiaUITests" */;
 			buildPhases = (
 				17BCDC2C2CE3D74C00335BCD /* Sources */,
 				17BCDC2D2CE3D74C00335BCD /* Frameworks */,
@@ -154,13 +154,13 @@
 				17BCDC322CE3D74C00335BCD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				17BCDC332CE3D74C00335BCD /* afp-appUITests */,
+				17BCDC332CE3D74C00335BCD /* keiaUITests */,
 			);
-			name = "afp-appUITests";
+			name = keiaUITests;
 			packageProductDependencies = (
 			);
 			productName = "afp-appUITests";
-			productReference = 17BCDC302CE3D74C00335BCD /* afp-appUITests.xctest */;
+			productReference = 17BCDC302CE3D74C00335BCD /* keiaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 17BCDC112CE3D74B00335BCD /* Build configuration list for PBXProject "afp-app" */;
+			buildConfigurationList = 17BCDC112CE3D74B00335BCD /* Build configuration list for PBXProject "keia" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				17BCDC152CE3D74B00335BCD /* afp-app */,
-				17BCDC252CE3D74C00335BCD /* afp-appTests */,
-				17BCDC2F2CE3D74C00335BCD /* afp-appUITests */,
+				17BCDC152CE3D74B00335BCD /* keia */,
+				17BCDC252CE3D74C00335BCD /* keiaTests */,
+				17BCDC2F2CE3D74C00335BCD /* keiaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		17BCDC282CE3D74C00335BCD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 17BCDC152CE3D74B00335BCD /* afp-app */;
+			target = 17BCDC152CE3D74B00335BCD /* keia */;
 			targetProxy = 17BCDC272CE3D74C00335BCD /* PBXContainerItemProxy */;
 		};
 		17BCDC322CE3D74C00335BCD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 17BCDC152CE3D74B00335BCD /* afp-app */;
+			target = 17BCDC152CE3D74B00335BCD /* keia */;
 			targetProxy = 17BCDC312CE3D74C00335BCD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -396,19 +396,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"afp-app/Preview Content\"";
+				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -424,19 +427,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"afp-app/Preview Content\"";
+				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -453,12 +459,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-appTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keiaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/afp-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/afp-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/keia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/keia";
 			};
 			name = Debug;
 		};
@@ -471,12 +477,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-appTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keiaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/afp-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/afp-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/keia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/keia";
 			};
 			name = Release;
 		};
@@ -487,7 +493,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-appUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keiaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -503,7 +509,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brando.afp-appUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brando.keiaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -515,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17BCDC112CE3D74B00335BCD /* Build configuration list for PBXProject "afp-app" */ = {
+		17BCDC112CE3D74B00335BCD /* Build configuration list for PBXProject "keia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BCDC382CE3D74C00335BCD /* Debug */,
@@ -524,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		17BCDC3A2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-app" */ = {
+		17BCDC3A2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BCDC3B2CE3D74C00335BCD /* Debug */,
@@ -533,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		17BCDC3D2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-appTests" */ = {
+		17BCDC3D2CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keiaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BCDC3E2CE3D74C00335BCD /* Debug */,
@@ -542,7 +548,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		17BCDC402CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "afp-appUITests" */ = {
+		17BCDC402CE3D74C00335BCD /* Build configuration list for PBXNativeTarget "keiaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BCDC412CE3D74C00335BCD /* Debug */,
