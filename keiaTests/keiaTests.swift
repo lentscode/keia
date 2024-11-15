@@ -1,12 +1,12 @@
 //
-//  afp_appTests.swift
-//  afp-appTests
+//  keiaTests.swift
+//  keiaTests
 //
 //  Created by Antonio Lentini on 12/11/24.
 //
 
 import Testing
-@testable import afp_app
+@testable import keia
 
 struct afp_appTests {
 

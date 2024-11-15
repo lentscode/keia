@@ -1,6 +1,6 @@
 //
-//  afp_appUITestsLaunchTests.swift
-//  afp-appUITests
+//  keiaUITestsLaunchTests.swift
+//  keiaUITests
 //
 //  Created by Antonio Lentini on 12/11/24.
 //

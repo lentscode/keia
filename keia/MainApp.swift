@@ -1,6 +1,6 @@
 //
-//  afp_appApp.swift
-//  afp-app
+//  MainApp.swift
+//  keia
 //
 //  Created by Antonio Lentini on 12/11/24.
 //

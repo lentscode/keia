@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  afp-app
+//  keia
 //
 //  Created by Antonio Lentini on 12/11/24.
 //
