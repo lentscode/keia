@@ -30,11 +30,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		17BCDC182CE3D74B00335BCD /* keia */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = keia;
-			sourceTree = "<group>";
-		};
 		17BCDC292CE3D74C00335BCD /* keiaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = keiaTests;
@@ -43,6 +38,11 @@
 		17BCDC332CE3D74C00335BCD /* keiaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = keiaUITests;
+			sourceTree = "<group>";
+		};
+		17E1D4CF2CEE49A500B2F343 /* keia */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = keia;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +75,7 @@
 		17BCDC0D2CE3D74B00335BCD = {
 			isa = PBXGroup;
 			children = (
-				17BCDC182CE3D74B00335BCD /* keia */,
+				17E1D4CF2CEE49A500B2F343 /* keia */,
 				17BCDC292CE3D74C00335BCD /* keiaTests */,
 				17BCDC332CE3D74C00335BCD /* keiaUITests */,
 				17BCDC172CE3D74B00335BCD /* Products */,
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				17BCDC182CE3D74B00335BCD /* keia */,
+				17E1D4CF2CEE49A500B2F343 /* keia */,
 			);
 			name = keia;
 			packageProductDependencies = (
@@ -395,7 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"afp-app/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"keia/Preview Content\"";
 				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -405,7 +405,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +426,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"afp-app/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"keia/Preview Content\"";
 				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -436,7 +436,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
