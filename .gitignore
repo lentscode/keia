@@ -58,6 +58,7 @@ Carthage/Build/
 
 fastlane/report.xml
 *.xcuserstate
+.DS_Store
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
