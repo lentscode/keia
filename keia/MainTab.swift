@@ -22,7 +22,7 @@ struct MainTab: View {
                     Label("History", systemImage: "clock")
                 }
                 .tag(1)
-            BlogView()
+            BlogView( )
                 .tabItem {
                     Label("Blog", systemImage: "newspaper")
                 }
