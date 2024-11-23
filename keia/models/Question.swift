@@ -20,14 +20,15 @@ class Question: Identifiable, ObservableObject {
     let isSlider: Bool
     /// In case the question accepts a value via a `Bool`,
     /// assigns a value of 1 to 'no' and 0 to 'yes'.
-    let reversed: Bool = false
+    let reversed: Bool
     /// The points assigned to the question depending on user answer.
     @Published private(set) var points: Double?
     
-    init(text: String, weight: Double, isSlider: Bool) {
+    init(text: String, weight: Double, isSlider: Bool, reversed: Bool = false) {
         self.text = text
         self.weight = weight
         self.isSlider = isSlider
+        self.reversed = reversed
     }
     
     /// Assigns a value to ``points`` depending on a `Bool` value.
@@ -40,7 +41,7 @@ class Question: Identifiable, ObservableObject {
         guard value >= 1 && value <= 5 else {
             return
         }
-            
+        
         points = Double(value) / 5.0
     }
     
