@@ -12,6 +12,8 @@ struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             MainTab()
+            //TODO: Add CreatePurchaseIntentViewModel instance and .modelContext
+            //TODO: for PurchaseIntents
         }
     }
 }
