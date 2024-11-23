@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HistoryView: View {
-    var objects: [PurchaseIntent]
+    @Query private var purchases: [PurchaseIntent]
     @State private var searchTerm = ""
+    @EnvironmentObject private var vm: CreatePurchaseIntentViewModel
     
     var body: some View {
             NavigationStack {
                 ScrollView {
-                    ForEach(objects, id: \.id) { object in
-                        PurchaseIntentCard(purchase: object)
+                    ForEach(purchases, id: \.id) { purchase in
+                        PurchaseIntentCard(purchase: purchase)
                         .padding(.bottom, 8)
                         .padding([.leading, .trailing], 16)
                     }
@@ -31,6 +33,7 @@ struct HistoryView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
+                            vm.isCreationProcessPresented = true
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(Color("Prime"))
@@ -40,15 +43,16 @@ struct HistoryView: View {
                 .navigationTitle("History")
             }
             .searchable(text: $searchTerm)
+            .purchaseSheet(
+                isCreationProcessPresented: $vm.isCreationProcessPresented,
+                isPurchaseScorePresented: $vm.isPurchaseScorePresented,
+                purchase: vm.purchase
+            )
     }
 }
 
 #Preview {
-    HistoryView(
-        objects: [
-            PurchaseIntent(product: "Mac Book Pro M4 Pro", price: 4200, score: 7.7, purchased: false),
-            PurchaseIntent(product: "iPhone 16", price: 890, score: 8.9, purchased: false)
-        ]
-    )
+    HistoryView()
+        .modelContainer(for: [PurchaseIntent.self])
 }
 

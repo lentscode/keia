@@ -66,7 +66,6 @@ fileprivate struct ObjectsGroupBoxStyle : GroupBoxStyle {
             
             configuration.content
         }
-        .frame(width: .infinity)
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 8, style: .continuous)
