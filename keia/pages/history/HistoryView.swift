@@ -25,7 +25,7 @@ struct HistoryView: View {
                                         Text("20/09/2024")
                                     }
                                     Spacer()
-                                    Text("\(object.score, specifier: "%.2f")")
+                                    Text("\(object.score, specifier: "%.1f")")
                                 }
                             }
                             .groupBoxStyle(.items)
@@ -38,13 +38,15 @@ struct HistoryView: View {
                             Button(action: {//toDo
                             }, label: {
                                 Image(systemName: "line.3.horizontal.decrease")
+                                    .foregroundColor(.black)
                             })
                         }
                         
                         ToolbarItem(placement: .topBarTrailing) {
                             Button(action: {//toDo
                             }, label: {
-                                Image(systemName: "plus.circle")
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(.keiaGreen)
                             })
                         }
                     }
@@ -89,5 +91,9 @@ extension GroupBoxStyle where Self == objectsGroupBoxStyle{
     static var items:  objectsGroupBoxStyle{
         .init()
     }
+}
+
+extension Color {
+    static var keiaGreen = Color(red: 0.1569, green: 0.4471, blue: 0.2)
 }
 
