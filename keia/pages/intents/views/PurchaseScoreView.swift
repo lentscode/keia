@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// View that shows the score of a `PurchaseIntent`.
 struct PurchaseScoreView: View {
