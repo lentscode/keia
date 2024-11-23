@@ -10,24 +10,34 @@ import SwiftUI
 struct HistoryView: View {
     
     var objects: [PurchaseIntent]
+    @State private var searchTerm = ""
+    
     var body: some View {
         VStack {
-            ScrollView{
-                ForEach(objects, id: \.id){ object in
-                    GroupBox(label: Text(object.product)){
-                        HStack {
-                            VStack(alignment: .leading){
-                                Text("\(object.price, specifier: "%.2f")€")
-                                Text("20/09/2024")
+            if #available(iOS 16.0, *) {
+                NavigationStack{
+                    ScrollView{
+                        ForEach(objects, id: \.id){ object in
+                            GroupBox(label: Text(object.product)){
+                                HStack {
+                                    VStack(alignment: .leading){
+                                        Text("\(object.price, specifier: "%.2f")€")
+                                        Text("20/09/2024")
+                                    }
+                                    Spacer()
+                                    Text("\(object.score, specifier: "%.2f")")
+                                }
                             }
-                            Spacer()
-                            Text("\(object.score, specifier: "%.2f")")
+                            .groupBoxStyle(.items)
+                            
+                            
                         }
                     }
-                    .groupBoxStyle(.items)
-                    
-                    
                 }
+                .task {}
+                .searchable(text: $searchTerm)
+            } else {
+                // Fallback on earlier versions
             }
         }
     }
