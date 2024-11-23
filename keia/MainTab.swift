@@ -29,7 +29,6 @@ struct MainTab: View {
                 .tag(2)
         }.tint(Color("Prime"))
     }
-    
 }
 
 #Preview {
