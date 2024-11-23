@@ -7,4 +7,8 @@
 
 import Foundation
 
-struct PurchaseFormData {}
+/// Structure that contains the ``Question``s for the creation of
+/// a ``PurchaseIntent``.
+struct PurchaseFormData {
+    let questions: [Question]
+}
