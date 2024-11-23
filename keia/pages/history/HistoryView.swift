@@ -33,6 +33,21 @@ struct HistoryView: View {
                             
                         }
                     }
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button(action: {//toDo
+                            }, label: {
+                                Image(systemName: "line.3.horizontal.decrease")
+                            })
+                        }
+                        
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(action: {//toDo
+                            }, label: {
+                                Image(systemName: "plus.circle")
+                            })
+                        }
+                    }
                 }
                 .task {}
                 .searchable(text: $searchTerm)
@@ -49,7 +64,7 @@ struct HistoryView: View {
 
 struct objectsGroupBoxStyle : GroupBoxStyle {
     var backgroundColor: UIColor = UIColor .systemGroupedBackground
-    var width: CGFloat = 325
+    var width: CGFloat = 340
     var labelColor: UIColor = UIColor.label
     var opacity: Double = 1
     func makeBody(configuration: Configuration) -> some View {
