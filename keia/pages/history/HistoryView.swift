@@ -23,13 +23,29 @@ struct HistoryView: View {
                     }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button(action: {
-                        }, label: {
-                            Image(systemName: "line.3.horizontal.decrease")
-                                .foregroundColor(.black)
-                        })
-                    }
+                    ToolbarItem(placement: .topBarLeading, content: {
+                        Menu {
+                            Button( action: {//toDo
+                            }) {
+                                Text("Date")
+                                }
+                                Button( action: {//toDo
+                                }) {
+                                Text("Name")
+                                }
+                                Button( action: {//toDo
+                                }) {
+                                Text("Price")
+                                }
+                                Button( action: {//toDo
+                                }) {
+                                Text("Score")
+                                }
+                                } label: {
+                                Image(systemName:"line.3.horizontal.decrease")
+                                        .foregroundColor(.black)
+                                }
+                    })
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -54,5 +70,6 @@ struct HistoryView: View {
 #Preview {
     HistoryView()
         .modelContainer(for: [PurchaseIntent.self])
+        .environmentObject(CreatePurchaseIntentViewModel(questions: [Question(text:"Does this product solve an urgent need?", weight: 6, isSlider: false), Question(text:"Has the best quality/price ratio?", weight: 4, isSlider: true)]))
 }
 
