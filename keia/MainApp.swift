@@ -22,6 +22,7 @@ struct MainApp: App {
                         ]
                     )
                 )
+                .environmentObject(HistoryViewModel())
         }
     }
 }
