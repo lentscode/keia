@@ -33,4 +33,13 @@ struct MainTab: View {
 
 #Preview {
     MainTab()
+        .environmentObject(
+            CreatePurchaseIntentViewModel(
+                questions: [
+                    Question(text:"Does this product solve an urgent need?", weight: 6, isSlider: false),
+                    Question(text:"Has the best quality/price ratio?", weight: 4, isSlider: true)
+                ]
+            )
+        )
+        .environmentObject(HistoryViewModel())
 }
