@@ -6,46 +6,49 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct HistoryView: View {
-    @Query private var purchases: [PurchaseIntent]
     @State private var searchTerm = ""
     @EnvironmentObject private var vm: CreatePurchaseIntentViewModel
+    @EnvironmentObject private var hvm: HistoryViewModel
     
     var body: some View {
-            NavigationStack {
-                ScrollView {
-                    ForEach(purchases, id: \.id) { purchase in
-                        PurchaseIntentCard(purchase: purchase)
-                        .padding(.bottom, 8)
-                        .padding([.leading, .trailing], 16)
-                    }
-                }
+        NavigationStack {
+            HistoryPurchaseList(sorting: hvm.sorting, filter: hvm.searchTerm)
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading, content: {
+                    ToolbarItem(placement: .topBarLeading) {
                         Menu {
-                            Button( action: {//toDo
-                            }) {
+                            Picker("Sort", selection: $hvm.sorting) {
                                 Text("Date")
-                                }
-                                Button( action: {//toDo
-                                }) {
+                                    .tag(
+                                        SortDescriptor(
+                                            \PurchaseIntent.createdAt,
+                                             order: .reverse
+                                        )
+                                    )
                                 Text("Name")
-                                }
-                                Button( action: {//toDo
-                                }) {
+                                    .tag(SortDescriptor(\PurchaseIntent.product))
                                 Text("Price")
-                                }
-                                Button( action: {//toDo
-                                }) {
+                                    .tag(
+                                        SortDescriptor(
+                                            \PurchaseIntent.price,
+                                             order: .reverse
+                                        )
+                                    )
                                 Text("Score")
-                                }
-                                } label: {
-                                Image(systemName:"line.3.horizontal.decrease")
-                                        .foregroundColor(.black)
-                                }
-                    })
+                                    .tag(
+                                        SortDescriptor(
+                                            \PurchaseIntent.score,
+                                             order: .reverse
+                                        )
+                                    )
+                            }
+                            .pickerStyle(.inline)
+                        } label: {
+                            Image(systemName:"line.3.horizontal.decrease")
+                                .foregroundColor(.black)
+                        }
+                    }
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -57,19 +60,27 @@ struct HistoryView: View {
                     }
                 }
                 .navigationTitle("History")
-            }
-            .searchable(text: $searchTerm)
-            .purchaseSheet(
-                isCreationProcessPresented: $vm.isCreationProcessPresented,
-                isPurchaseScorePresented: $vm.isPurchaseScorePresented,
-                purchase: vm.purchase
-            )
+        }
+        .searchable(text: $hvm.searchTerm)
+        .purchaseSheet(
+            isCreationProcessPresented: $vm.isCreationProcessPresented,
+            isPurchaseScorePresented: $vm.isPurchaseScorePresented,
+            purchase: vm.purchase
+        )
     }
 }
 
 #Preview {
     HistoryView()
         .modelContainer(for: [PurchaseIntent.self])
-        .environmentObject(CreatePurchaseIntentViewModel(questions: [Question(text:"Does this product solve an urgent need?", weight: 6, isSlider: false), Question(text:"Has the best quality/price ratio?", weight: 4, isSlider: true)]))
+        .environmentObject(
+            CreatePurchaseIntentViewModel(
+                questions: [
+                    Question(text:"Does this product solve an urgent need?", weight: 6, isSlider: false),
+                    Question(text:"Has the best quality/price ratio?", weight: 4, isSlider: true)
+                ]
+            )
+        )
+        .environmentObject(HistoryViewModel())
 }
 
