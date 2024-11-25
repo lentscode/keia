@@ -7,16 +7,19 @@
 
 import SwiftUI
 import Charts
+import SwiftData
 
 struct PurchaseIntentsCharts: View {
-    private let purchases: [PurchaseIntent]
+    @Query private var purchases:[PurchaseIntent]
+    private let report:ChooseReport
     private let type: ChartType
     private let color: Color
     
-    init(purchases: [PurchaseIntent], type: ChartType, color: Color = .blue) {
-        self.purchases = purchases
+    init(type: ChartType, report: ChooseReport ,color: Color = .blue) {
+        //_purchases = Query(filter: #Predicate{$0.createdAt})
         self.type = type
         self.color = color
+        self.report = report
     }
     
     var body: some View {
@@ -38,7 +41,7 @@ struct PurchaseIntentsCharts: View {
 extension PurchaseIntentsCharts {
     func getDataForPurchase(purchase: PurchaseIntent, for type: ChartType) -> Double {
         return switch type {
-        case .price:
+        case .expense, .savings:
             purchase.price
         case .score:
             purchase.score
@@ -46,8 +49,10 @@ extension PurchaseIntentsCharts {
     }
 }
 
-enum ChartType {
-    case score, price
+enum ChartType: String, CaseIterable {
+    case score = "Score"
+    case expense = "Expenses"
+    case savings = "Savings"
 }
 
 #Preview {
@@ -58,7 +63,7 @@ enum ChartType {
             PurchaseIntent(product: "", price: 12, score: 8.5, purchased: true),
             PurchaseIntent(product: "", price: 78, score: 9.5, purchased: true)
         ],
-        type: .price,
+        type: .expense,
         color: .red
     )
     .frame(height: 200)

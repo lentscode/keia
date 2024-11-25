@@ -12,3 +12,9 @@ enum ChooseReport: String, CaseIterable{
     case monthly = "Monthly"
     case annual = "Annual"
 }
+
+class StatsViewModel: ObservableObject{
+    @Published var report:ChooseReport = .weekly
+    @Published var type:ChartType = .score
+}
+
