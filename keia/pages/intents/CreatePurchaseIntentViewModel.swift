@@ -100,7 +100,8 @@ class CreatePurchaseIntentViewModel: ObservableObject {
             product: product,
             price: Double(price) ?? 0,
             score: 0,
-            purchased: false
+            purchased: false,
+            questions: questions
         )
         
         let formData = PurchaseFormData(questions: questions)
