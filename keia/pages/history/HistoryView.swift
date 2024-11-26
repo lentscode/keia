@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @State private var searchTerm = ""
     @EnvironmentObject private var vm: CreatePurchaseIntentViewModel
     @EnvironmentObject private var hvm: HistoryViewModel
     
@@ -67,6 +66,11 @@ struct HistoryView: View {
             isPurchaseScorePresented: $vm.isPurchaseScorePresented,
             purchase: vm.purchase
         )
+        .sheet(isPresented: $hvm.purchaseIntentSheetOpen) {
+            if let purchase = hvm.focusedPurchase {
+                PurchaseDetailView(purchase: purchase)
+            }
+        }
     }
 }
 

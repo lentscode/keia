@@ -14,6 +14,7 @@ struct HistoryPurchaseList: View {
             SortDescriptor<PurchaseIntent>(\.createdAt, order: .reverse)
         ]
     ) private var purchases: [PurchaseIntent]
+    @EnvironmentObject private var hvm: HistoryViewModel
     
     init(sorting: SortDescriptor<PurchaseIntent>, filter: String) {
         _purchases = Query(
@@ -29,6 +30,9 @@ struct HistoryPurchaseList: View {
                     PurchaseIntentCard(purchase: purchase)
                         .padding(.bottom, 8)
                         .padding([.leading, .trailing], 16)
+                        .onTapGesture {
+                            hvm.focusedPurchase = purchase
+                        }
                 }
             }
         }

@@ -81,7 +81,13 @@ extension GroupBoxStyle where Self == ObjectsGroupBoxStyle{
 
 #Preview {
     PurchaseIntentCard(
-        purchase: PurchaseIntent(product: "Mac Book Pro M4 Pro", price: 4200, score: 7.7, purchased: false)
+        purchase: PurchaseIntent(
+            product: "Mac Book Pro M4 Pro",
+            price: 4200,
+            score: 7.7,
+            purchased: false,
+            questions: Array<PurchaseQuestion>()
+        )
     )
     .padding([.leading, .trailing], 16)
 }

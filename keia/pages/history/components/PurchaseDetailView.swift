@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct PurchaseDetailView: View {
-
+    @Environment(\.modelContext) private var context
+    @EnvironmentObject private var hvm: HistoryViewModel
     
     let purchase: PurchaseIntent
-    let questions = [Question(text: "Questa è una domanda", weight: 1, isSlider: true), Question(text: "Queta è un'altra domanda", weight: 1, isSlider: true)]
     
     init(purchase: PurchaseIntent) {
         self.purchase = purchase
     }
-    
     
     var body: some View {
         NavigationStack{
@@ -38,26 +37,25 @@ struct PurchaseDetailView: View {
                             .foregroundStyle(getScoreColor())
                             .padding(.bottom, 16)
                             .padding(.top, 8)
-                        Text("/10")
+                        Text("/ 10")
                             .font(.system(size: 20))
                         
                     }
                     GroupBox{
-                        ForEach(questions, id:\.id){ question in
+                        ForEach(purchase.questions, id:\.id) { question in
                             HStack{
                                 Text(question.text)
                                     .padding()
                                 Spacer()
-                                Text("YES")
+                                Text(getPointForQuestion(question: question))
                                     .foregroundStyle( .white)
                                     .frame(width: 70, height: 35)
                                     .background(RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                        .fill(Color(getScoreColor())))
+                                        .fill(getScoreColor()))
                             }
                             Divider()
                             
                         }
-                        
                     }
                     .groupBoxStyle(.item)
                     
@@ -65,31 +63,24 @@ struct PurchaseDetailView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading){
-                    Text("On \(getDate()) you wantetd to buy:")
+                    Text("On \(getDate()) you wanted to buy:")
                         .font(.system(size: 13))
                         .multilineTextAlignment(.leading)
                         .padding()
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: //todo
-                           {
-                           
-                    }, label: {
+                    Button(action: {
+                        context.delete(purchase)
+                        hvm.focusedPurchase = nil
+                    }) {
                         Image(systemName: "trash")
                             .foregroundColor(.black)
                             .imageScale(.medium)
-
-                    })
+                    }
                 }
             }
         }
-           
-        
     }
-}
-
-#Preview {
-    PurchaseDetailView(purchase: PurchaseIntent(product: "Mac Book Pro M4 Pro", price: 4200, score: 7.7, purchased: false))
 }
 
 extension PurchaseDetailView {
@@ -99,7 +90,7 @@ extension PurchaseDetailView {
         } else if purchase.score >= 6.0 {
             return Color("Prime").opacity(0.5)
         }
-        return .black
+        return .gray
     }
     
     func getDate() -> String {
@@ -109,6 +100,13 @@ extension PurchaseDetailView {
         formatter.setLocalizedDateFormatFromTemplate("MMMMdy")
         
         return formatter.string(from: purchase.createdAt)
+    }
+    
+    func getPointForQuestion(question: PurchaseQuestion) -> String {
+        if question.isSlider {
+            return "\((question.points) * 5)"
+        }
+        return question.points == 1 ? "Yes" : "No"
     }
 }
 
@@ -125,7 +123,7 @@ fileprivate struct ObjectsGroupBoxStyle : GroupBoxStyle {
             
             configuration.content
         }
-        .padding()
+        .padding(.horizontal)
         .background(
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(Color(backgroundColor))
@@ -138,6 +136,17 @@ extension GroupBoxStyle where Self == ObjectsGroupBoxStyle{
     static var item: ObjectsGroupBoxStyle{ .init() }
 }
 
-
-
-
+#Preview {
+    PurchaseDetailView(
+        purchase: PurchaseIntent(
+            product: "Mac Book Pro M4 Pro",
+            price: 4200,
+            score: 5,
+            purchased: false,
+            questions: [
+                PurchaseQuestion(text: "Ciao", weight: 6.4, isSlider: true, reversed: false, points: 0.4),
+                PurchaseQuestion(text: "Bella ciao", weight: 6.4, isSlider: false, reversed: false, points: 1),
+            ]
+        )
+    )
+}
