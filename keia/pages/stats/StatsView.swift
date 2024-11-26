@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct StatsView: View {
     @EnvironmentObject private var pvm: CreatePurchaseIntentViewModel
     @EnvironmentObject private var svm: StatsViewModel
+    
+    @Query private var purchases: [PurchaseIntent]
     
     init() {
         UISegmentedControl.appearance().setTitleTextAttributes(
@@ -30,9 +33,11 @@ struct StatsView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
                     
-                    PurchaseIntentsCharts(type: svm.type, report: svm.report)
-                        .frame(height: 200)
-                        .padding(.horizontal, 16)                 
+                    StatsBodyView(
+                        report: svm.report,
+                        type: svm.type,
+                        predicate: svm.predicate()
+                    )
                 }
             }
             .toolbar {
@@ -66,6 +71,30 @@ struct StatsView: View {
             isPurchaseScorePresented: $pvm.isPurchaseScorePresented,
             purchase: pvm.purchase
         )
+        .onAppear {
+        }
+    }
+}
+
+fileprivate struct StatsBodyView: View {
+    @Query private var purchases: [PurchaseIntent]
+    private var report: ChooseReport
+    private var type: ChartType
+    
+    init(report: ChooseReport, type: ChartType, predicate: Predicate<PurchaseIntent>) {
+        self.report = report
+        self.type = type
+        
+        _purchases = Query(
+            filter: predicate,
+            sort: \.createdAt
+        )
+    }
+    
+    var body: some View {
+        PurchaseIntentsCharts(purchases: purchases, type: type, report: report)
+            .frame(height: 200)
+            .padding(.horizontal, 16)
     }
 }
 
