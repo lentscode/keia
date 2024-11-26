@@ -32,7 +32,7 @@ struct StatsView: View {
                     
                     PurchaseIntentsCharts(type: svm.type, report: svm.report)
                         .frame(height: 200)
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, 16)                 
                 }
             }
             .toolbar {
