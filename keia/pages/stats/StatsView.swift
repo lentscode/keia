@@ -8,46 +8,42 @@
 import SwiftUI
 
 struct StatsView: View {
-
-    //Variable to select which report want to see
-    @State private var selectionReport: ChooseReport = .weekly
-
-    @State private var selectedOption = "Score"
-
-    @State private var isSheetOpen = false
-
-    //StateObject: this view is responsible for creating the object and will keep it in memory for its entire duration.
-    @StateObject private var viewModelStatsIntent =
-        CreatePurchaseIntentViewModel(questions: [])
-
+    @EnvironmentObject private var pvm: CreatePurchaseIntentViewModel
     @EnvironmentObject private var svm: StatsViewModel
-
-    //Segmented bar control as colors
+    
     init() {
         UISegmentedControl.appearance().setTitleTextAttributes(
-            [.foregroundColor: UIColor.prime], for: .selected)
+            [.foregroundColor: UIColor.prime],
+            for: .selected
+        )
     }
-
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Picker("Choose a report", selection: $selectionReport) {
+                    Picker("Report", selection: $svm.report) {
                         ForEach(ChooseReport.allCases, id: \.self) {
                             Text($0.rawValue)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
+                    
+                    PurchaseIntentsCharts(type: svm.type, report: svm.report)
+                        .frame(height: 200)
+                        .padding(.horizontal, 16)
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { isSheetOpen = true }) {
+                    Button(action: {
+                        pvm.isCreationProcessPresented = true
+                    }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.body)
                             .foregroundColor(.prime)
-
+                        
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -65,13 +61,15 @@ struct StatsView: View {
                 }
             }
         }
-        .sheet(isPresented: $isSheetOpen) {
-            CreationProcessView().environmentObject(viewModelStatsIntent)
-        }
+        .purchaseSheet(
+            isCreationProcessPresented: $pvm.isCreationProcessPresented,
+            isPurchaseScorePresented: $pvm.isPurchaseScorePresented,
+            purchase: pvm.purchase
+        )
     }
 }
 
 #Preview {
     StatsView()
-        .environmentObject(StatsViewModel())
+        .setEnvironment()
 }
