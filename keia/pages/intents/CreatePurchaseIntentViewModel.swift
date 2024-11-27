@@ -29,24 +29,15 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     @Published var purchase: PurchaseIntent? {
         didSet {
             if purchase != nil {
-                closeCreationAndOpenScore()
+                isCreationProcessPresented = false
+                isPurchaseScorePresented = true
             }
         }
     }
     
     /// Returns a boolean depending on wheter all fields of the form were compiled.
     var isComplete: Bool {
-        if product.isEmpty || price.isEmpty {
-            return false
-        }
-        
-        for question in questions {
-            if question.points == nil {
-                return false
-            }
-        }
-        
-        return true
+        !product.isEmpty && !price.isEmpty && questions.allSatisfy { $0.points != nil }
     }
     
     init(questions: [Question]) {
@@ -68,18 +59,26 @@ class CreatePurchaseIntentViewModel: ObservableObject {
         isPurchaseScorePresented = false
         purchase = nil
         
-        for question in questions {
-            question.reset()
+        resetQuestions()
+    }
+    
+    private func resetQuestions() {
+        questions = questions.map { question in
+            var q = question
+            q.reset()
+            return q
         }
     }
     
     /// Sets the value of the `Question` at `index` using a value between 1 to 5.
     func evaluateQuestion(index: Int, value: Int) {
+        guard questions.indices.contains(index) else { return }
         questions[index].fromSlider(value)
     }
     
     /// Sets the value of the `Question` at `index` using a boolean.
     func evaluateQuestion(index: Int, value: Bool) {
+        guard questions.indices.contains(index) else { return }
         questions[index].fromBoolean(value)
     }
     

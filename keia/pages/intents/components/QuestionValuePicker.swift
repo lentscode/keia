@@ -13,11 +13,7 @@ import SwiftUI
 /// - Parameters:
 ///     - question: question to answer with a value
 struct QuestionValuePicker: View {
-    @ObservedObject private var question: Question
-    
-    init(question: Question) {
-        self.question = question
-    }
+    @Binding var question: Question
     
     var body: some View {
         HStack(spacing: 16) {
@@ -43,5 +39,13 @@ struct QuestionValuePicker: View {
 }
 
 #Preview {
-    QuestionValuePicker(question: Question(text: "Ciao", weight: 0.6, isSlider: true))
+    QuestionValuePicker(
+        question: .constant(
+            Question(
+            text: "Ciao",
+            weight: 0.6,
+            isSlider: true
+            )
+        )
+    )
 }

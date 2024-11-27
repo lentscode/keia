@@ -13,7 +13,6 @@ struct CreationProcessView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             TabView(selection: $vm.currentPage) {
                 Page(productName)
                     .tag(0)
@@ -26,15 +25,18 @@ struct CreationProcessView: View {
                         .tag(index + 2)
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+            .tabViewStyle(
+                PageTabViewStyle(indexDisplayMode: .automatic)
+            )
             
-            Spacer()
-            
-            Button(action: {
-                vm.createPurchase()
-            }, label: {
-                Text("Confirm")
-            })
+            Button(
+                action: {
+                    vm.createPurchase()
+                }, label: {
+                    Text("Confirm")
+                        .padding(.horizontal)
+                        .padding(.vertical, 4)
+                })
             .cornerRadius(1000)
             .padding(.bottom, 32)
             .tint(Color("Prime"))
@@ -74,18 +76,16 @@ struct CreationProcessView: View {
     }
     
     @ViewBuilder private func questionView(index: Int) -> some View {
-        let question = vm.questions[index]
-        
         VStack {
-            Text(question.text)
+            Text(vm.questions[index].text)
                 .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            if question.isSlider {
-                QuestionValuePicker(question: question)
+            if vm.questions[index].isSlider {
+                QuestionValuePicker(question: $vm.questions[index])
             } else {
                 QuestionBinaryValuePicker(
-                    question: question
+                    question: $vm.questions[index]
                 )
             }
         }
@@ -100,11 +100,6 @@ struct CreationProcessView: View {
 #Preview {
     let questions: [Question] = [
         Question(text: "Text", weight: 0.9, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
     ]
     
     let vm = CreatePurchaseIntentViewModel(questions: questions)
