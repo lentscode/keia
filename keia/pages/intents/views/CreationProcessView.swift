@@ -14,15 +14,17 @@ struct CreationProcessView: View {
     var body: some View {
         VStack {
             TabView(selection: $vm.currentPage) {
-                Page(productName)
+                Page(
+                    VStack(spacing: 64) {
+                        productName
+                        productPrice
+                    }
+                )
                     .tag(0)
-                
-                Page(productPrice)
-                    .tag(1)
                 
                 ForEach(vm.questions.indices, id: \.self) { index in
                     Page(questionView(index: index))
-                        .tag(index + 2)
+                        .tag(index + 1)
                 }
             }
             .tabViewStyle(
