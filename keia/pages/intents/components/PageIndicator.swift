@@ -29,7 +29,7 @@ struct PageIndicator: View {
     private func isColored(for index: Int) -> Bool {
         switch index {
         case 0:
-            return !vm.product.isEmpty && !vm.price.isEmpty
+            return !vm.product.isEmpty && vm.price != 0.0
         case 1..<totalPages:
             return vm.questions[index - 1].points != nil
         default:

@@ -19,7 +19,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     /// The name of the product.
     @Published var product = ""
     /// The price (in `String`) of the product.
-    @Published var price = ""
+    @Published var price = 0.0
     
     /// Flag that enables the `CreationProcessView` sheet.
     @Published var isCreationProcessPresented: Bool = false
@@ -37,7 +37,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     
     /// Returns a boolean depending on wheter all fields of the form were compiled.
     var isComplete: Bool {
-        !product.isEmpty && !price.isEmpty && questions.allSatisfy { $0.points != nil }
+        !product.isEmpty && price != 0.0 && questions.allSatisfy { $0.points != nil }
     }
     
     init(questions: [Question]) {
@@ -54,7 +54,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     private func reset() {
         currentPage = 0
         product = ""
-        price = ""
+        price = 0.0
         isCreationProcessPresented = false
         isPurchaseScorePresented = false
         purchase = nil
@@ -97,7 +97,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     func createPurchase() {
         purchase = PurchaseIntent(
             product: product,
-            price: Double(price) ?? 0,
+            price: price,
             score: 0,
             purchased: false,
             questions: questions

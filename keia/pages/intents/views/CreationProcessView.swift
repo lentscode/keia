@@ -69,7 +69,7 @@ struct CreationProcessView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            TextField("0.0", text: $vm.price)
+            TextField("0.0", value: $vm.price, format: .currency(code: "USD"))
                 .keyboardType(.numbersAndPunctuation)
                 .multilineTextAlignment(.center)
                 .tint(Color("Prime"))
