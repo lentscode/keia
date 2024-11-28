@@ -108,7 +108,8 @@ struct PurchaseScoreView: View {
             product: "Prodotto",
             price: 35.2,
             score: 5,
-            purchased: true
+            purchased: true,
+            questions: Array<PurchaseQuestion>()
         )
     )
 }

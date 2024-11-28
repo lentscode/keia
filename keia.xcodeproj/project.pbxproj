@@ -34,6 +34,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		17BCDC182CE3D74B00335BCD /* keia */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = keia;
+			sourceTree = "<group>";
+		};
 		17BCDC292CE3D74C00335BCD /* keiaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = keiaTests;
@@ -42,11 +47,6 @@
 		17BCDC332CE3D74C00335BCD /* keiaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = keiaUITests;
-			sourceTree = "<group>";
-		};
-		17E1D4CF2CEE49A500B2F343 /* keia */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = keia;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +80,7 @@
 		17BCDC0D2CE3D74B00335BCD = {
 			isa = PBXGroup;
 			children = (
-				17E1D4CF2CEE49A500B2F343 /* keia */,
+				17BCDC182CE3D74B00335BCD /* keia */,
 				17BCDC292CE3D74C00335BCD /* keiaTests */,
 				17BCDC332CE3D74C00335BCD /* keiaUITests */,
 				17BCDC172CE3D74B00335BCD /* Products */,
@@ -113,7 +113,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				17E1D4CF2CEE49A500B2F343 /* keia */,
+				17BCDC182CE3D74B00335BCD /* keia */,
 			);
 			name = keia;
 			packageProductDependencies = (
@@ -404,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"keia/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -435,7 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"keia/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9247434UV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
