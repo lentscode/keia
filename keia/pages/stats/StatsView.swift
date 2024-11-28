@@ -12,8 +12,6 @@ struct StatsView: View {
     @EnvironmentObject private var pvm: CreatePurchaseIntentViewModel
     @EnvironmentObject private var svm: StatsViewModel
     
-    @Query private var purchases: [PurchaseIntent]
-    
     init() {
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.prime],
@@ -95,6 +93,9 @@ fileprivate struct StatsBodyView: View {
         PurchaseIntentsCharts(purchases: purchases, type: type, report: report)
             .frame(height: 200)
             .padding(.horizontal, 16)
+            .padding(.vertical, 20)
+        
+        GeneralStatsView(purchases: purchases, report: report, type: type)
     }
 }
 

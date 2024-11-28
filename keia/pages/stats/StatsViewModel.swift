@@ -21,38 +21,38 @@ class StatsViewModel: ObservableObject {
 
 extension StatsViewModel {
     private var now: Date { Date.now }
-    private var aWeekAgo: Date { Calendar.current.date(bySetting: .day, value: -7, of: now) ?? now}
-    private var aMonthAgo: Date { Calendar.current.date(bySetting: .month, value: -1, of: now) ?? now}
-    private var aYearAgo: Date { Calendar.current.date(bySetting: .year, value: -1, of: now) ?? now}
+    private var aWeekAgo: Date { Calendar.current.date(byAdding: .day, value: -7, to: now) ?? now}
+    private var aMonthAgo: Date { Calendar.current.date(byAdding: .month, value: -1, to: now) ?? now}
+    private var aYearAgo: Date { Calendar.current.date(byAdding: .year, value: -1, to: now) ?? now}
     
     func predicate() -> Predicate<PurchaseIntent> {
         switch type {
         case .expense:
             switch report {
             case .weekly:
-                return #Predicate {$0.purchased && $0.createdAt < aWeekAgo}
+                return #Predicate {$0.purchased && $0.createdAt >= aWeekAgo}
             case .monthly:
-                return #Predicate {$0.purchased && $0.createdAt < aMonthAgo}
+                return #Predicate {$0.purchased && $0.createdAt >= aMonthAgo}
             case .annual:
-                return #Predicate {$0.purchased && $0.createdAt < aYearAgo}
+                return #Predicate {$0.purchased && $0.createdAt >= aYearAgo}
             }
         case .savings:
             switch report {
             case .weekly:
-                return #Predicate {!$0.purchased && $0.createdAt < aWeekAgo}
+                return #Predicate {!$0.purchased && $0.createdAt >= aWeekAgo}
             case .monthly:
-                return #Predicate {!$0.purchased && $0.createdAt < aMonthAgo}
+                return #Predicate {!$0.purchased && $0.createdAt >= aMonthAgo}
             case .annual:
-                return #Predicate {!$0.purchased && $0.createdAt < aYearAgo}
+                return #Predicate {!$0.purchased && $0.createdAt >= aYearAgo}
             }
         case .score:
             switch report {
             case .weekly:
-                return #Predicate {$0.createdAt < aWeekAgo}
+                return #Predicate {$0.createdAt >= aWeekAgo}
             case .monthly:
-                return #Predicate {$0.createdAt < aMonthAgo}
+                return #Predicate {$0.createdAt >= aMonthAgo}
             case .annual:
-                return #Predicate {$0.createdAt < aYearAgo}
+                return #Predicate {$0.createdAt >= aYearAgo}
             }
         }
     }

@@ -55,11 +55,11 @@ extension GeneralStatsView {
         case .score:
             switch report {
             case .weekly:
-                return "Your avarege weekly score is"
+                return "Your average weekly score is"
             case .monthly:
-                return "Your avarege monthly score is"
+                return "Your average monthly score is"
             case .annual:
-                return "Your avarege annual score is"
+                return "Your average annual score is"
             }
         }
     }
