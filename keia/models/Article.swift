@@ -6,7 +6,8 @@ struct Article: Identifiable {
     var id = UUID()
     let title: String
     let category: String
-    let file: String
+    let image: String
     let text: String
     let author: String
+    let date: Date
 }

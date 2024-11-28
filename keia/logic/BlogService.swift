@@ -10,16 +10,10 @@ import Yams
 import SwiftUI
 
 class BlogService {
-    private var articles = [
-        Article(title: "Prova 1", category: "A", file: "d3", text: "", author: ""),
-        Article(title: "Prova 2", category: "B", file: "d3", text: "", author: ""),
-        Article(title: "Prova 3", category: "B", file: "d3", text: "", author: ""),
-        Article(title: "Prova 4", category: "C", file: "d3", text: "", author: ""),
-        Article(title: "Prova 5", category: "C", file: "d3", text: "", author: ""),
-    ]
+    private var articles: [Article] = []
     
     init() {
-        loadArticles()
+        articles = loadArticles()
     }
     
     func getArticlesByCategory(where filter: String? = nil) -> [String: [Article]] {
@@ -38,7 +32,7 @@ class BlogService {
         return dict
     }
     
-    private func loadArticles() {
+    private func loadArticles() -> [Article] {
         let fm = FileManager()
 
         if let path = Bundle.main.resourcePath {
@@ -57,25 +51,30 @@ class BlogService {
                     let content = getContent(filePath: fullPath)
                     
                     if let metadata {
+                        debugPrint(metadata.date)
                         articles.append(
                             Article(
                                 title: metadata.title,
                                 category: metadata.category,
-                                file: metadata.image,
+                                image: metadata.image,
                                 text: content,
-                                author: metadata.author
+                                author: metadata.author,
+                                date: dateFromISOString(metadata.date)
                             )
                         )
                     }
                 }
                 
-                if !articles.isEmpty {
-                    self.articles = articles
-                }
+                return articles
             } catch {
                 debugPrint("Errore durante il caricamento dei file: \(error)")
             }
         }
+        return []
+    }
+    
+    private func dateFromISOString(_ string: String) -> Date {
+        return ISO8601DateFormatter().date(from: string)!
     }
 
     
@@ -88,7 +87,6 @@ class BlogService {
                 if let yamlData = frontMatter.data(using: .utf8) {
                     let decoder = YAMLDecoder()
                     let metadata = try decoder.decode(MarkdownMetadata.self, from: yamlData)
-                    debugPrint(metadata)
                     return metadata
                 }
             }
@@ -127,4 +125,5 @@ fileprivate struct MarkdownMetadata: Decodable {
     let author: String
     let category: String
     let image: String
+    let date: String
 }

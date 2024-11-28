@@ -11,7 +11,7 @@ struct ArticleCard: View {
     var body: some View {
         HStack {
             //Image blog
-            Image(article.file)
+            Image(article.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(8)
@@ -38,6 +38,6 @@ struct ArticleCard: View {
 }
 
 #Preview {
-    ArticleCard(article: Article(title: "Titolo di esempio", category: "Category", file: "d3", text: "", author: ""))
+    ArticleCard(article: Article(title: "Titolo di esempio", category: "Category", image: "d3", text: "", author: "", date: Date()))
 }
 

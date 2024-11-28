@@ -16,9 +16,10 @@ struct ArticleView: View {
         article: Article(
             title: "Ciao",
             category: "Category",
-            file: "",
+            image: "",
             text: "",
-            author: ""
+            author: "",
+            date: Date()
         )
     )
 }
