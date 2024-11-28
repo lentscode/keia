@@ -14,18 +14,10 @@ struct ArticleView: View {
                     .clipShape(.rect(cornerRadius: 16))
                     .padding(.bottom, 32)
                 
-                HStack(alignment: .bottom) {
-                    Text(article.title)
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                    
-                    Spacer()
-                    
-                    Text(article.date.formatted())
-                        .foregroundStyle(.gray)
-                        .padding(.leading)
-                }
-                .padding(.bottom, 8)
+                Text(article.title)
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 8)
                 
                 HStack(alignment: .bottom) {
                     Text("by")
@@ -33,6 +25,14 @@ struct ArticleView: View {
                         .foregroundStyle(.gray)
                         .padding(.bottom, 2)
                     Text(article.author)
+                    
+                    
+                    Spacer()
+                    
+                    Text(article.date.formatted())
+                        .foregroundStyle(.gray)
+                        .font(.caption)
+                        .padding(.leading)
                 }
                 
                 Divider()
