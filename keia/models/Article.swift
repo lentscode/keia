@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 // Struct to define which values ​​BlogItems accepts
 struct Article: Identifiable {

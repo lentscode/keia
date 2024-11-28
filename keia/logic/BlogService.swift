@@ -7,6 +7,7 @@
 
 import Foundation
 import Yams
+import SwiftUI
 
 class BlogService {
     private var articles = [
@@ -39,7 +40,7 @@ class BlogService {
     
     private func loadArticles() {
         let fm = FileManager()
-        
+
         if let path = Bundle.main.resourcePath {
             do {
                 let articlePaths = try fm.contentsOfDirectory(atPath: path)
@@ -47,9 +48,13 @@ class BlogService {
                 var articles: [Article] = []
                 
                 for articlePath in articlePaths {
-                    let metadata = getMetadata(filePath: articlePath)
+                    guard articlePath.hasSuffix(".md") else { continue }
                     
-                    let content = getContent(filePath: articlePath)
+                    let fullPath = (path as NSString).appendingPathComponent(articlePath)
+                    
+                    let metadata = getMetadata(filePath: fullPath)
+
+                    let content = getContent(filePath: fullPath)
                     
                     if let metadata {
                         articles.append(
@@ -68,10 +73,11 @@ class BlogService {
                     self.articles = articles
                 }
             } catch {
-                debugPrint("Error while loading files")
+                debugPrint("Errore durante il caricamento dei file: \(error)")
             }
         }
     }
+
     
     private func getMetadata(filePath: String) -> MarkdownMetadata? {
         do {
@@ -82,6 +88,7 @@ class BlogService {
                 if let yamlData = frontMatter.data(using: .utf8) {
                     let decoder = YAMLDecoder()
                     let metadata = try decoder.decode(MarkdownMetadata.self, from: yamlData)
+                    debugPrint(metadata)
                     return metadata
                 }
             }
