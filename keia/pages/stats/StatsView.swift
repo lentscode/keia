@@ -38,6 +38,7 @@ struct StatsView: View {
                     )
                 }
             }
+            .navigationTitle("Stats")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
