@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1743652D2CF45CFA00CE90A3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 1743652C2CF45CFA00CE90A3 /* Yams */; };
+		179DDB452CF8B5F300C33754 /* ArticleTrial.md in Resources */ = {isa = PBXBuildFile; fileRef = 179DDB432CF8B59800C33754 /* ArticleTrial.md */; };
+		179DDB482CF8C33300C33754 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 179DDB472CF8C33300C33754 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +30,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		179DDB432CF8B59800C33754 /* ArticleTrial.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ArticleTrial.md; sourceTree = "<group>"; };
 		17BCDC162CE3D74B00335BCD /* keia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BCDC262CE3D74C00335BCD /* keiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BCDC302CE3D74C00335BCD /* keiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		179DDB422CF8B58400C33754 /* Exceptions for "keia" folder in "keia" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Articles/ArticleTrial.md,
+			);
+			target = 17BCDC152CE3D74B00335BCD /* keia */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		17BCDC182CE3D74B00335BCD /* keia */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				179DDB422CF8B58400C33754 /* Exceptions for "keia" folder in "keia" target */,
+			);
 			path = keia;
 			sourceTree = "<group>";
 		};
@@ -57,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1743652D2CF45CFA00CE90A3 /* Yams in Frameworks */,
+				179DDB482CF8C33300C33754 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,9 +94,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		179DDB442CF8B59800C33754 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				179DDB432CF8B59800C33754 /* ArticleTrial.md */,
+			);
+			name = Articles;
+			path = keia/Articles;
+			sourceTree = "<group>";
+		};
 		17BCDC0D2CE3D74B00335BCD = {
 			isa = PBXGroup;
 			children = (
+				179DDB442CF8B59800C33754 /* Articles */,
 				17BCDC182CE3D74B00335BCD /* keia */,
 				17BCDC292CE3D74C00335BCD /* keiaTests */,
 				17BCDC332CE3D74C00335BCD /* keiaUITests */,
@@ -118,6 +145,7 @@
 			name = keia;
 			packageProductDependencies = (
 				1743652C2CF45CFA00CE90A3 /* Yams */,
+				179DDB472CF8C33300C33754 /* MarkdownUI */,
 			);
 			productName = "afp-app";
 			productReference = 17BCDC162CE3D74B00335BCD /* keia.app */;
@@ -203,6 +231,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				1743652B2CF45CFA00CE90A3 /* XCRemoteSwiftPackageReference "Yams" */,
+				179DDB462CF8C33300C33754 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 17BCDC172CE3D74B00335BCD /* Products */;
@@ -221,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179DDB452CF8B5F300C33754 /* ArticleTrial.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +607,14 @@
 				minimumVersion = 5.1.3;
 			};
 		};
+		179DDB462CF8C33300C33754 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -584,6 +622,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1743652B2CF45CFA00CE90A3 /* XCRemoteSwiftPackageReference "Yams" */;
 			productName = Yams;
+		};
+		179DDB472CF8C33300C33754 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 179DDB462CF8C33300C33754 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
