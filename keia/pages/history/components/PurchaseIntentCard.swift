@@ -29,7 +29,7 @@ struct PurchaseIntentCard: View {
                     .foregroundStyle(getScoreColor())
             }
         }
-        .groupBoxStyle(.item)
+        .groupBoxStyle(.item(purchased: purchase.purchased))
     }
 }
 
@@ -56,27 +56,76 @@ extension PurchaseIntentCard {
 fileprivate struct ObjectsGroupBoxStyle : GroupBoxStyle {
     var backgroundColor: UIColor = UIColor.systemGroupedBackground
     var labelColor: UIColor = UIColor.label
-    var opacity: Double = 1
+    
+    private var purchased: Bool
+    
+    init(purchased: Bool) {
+        self.purchased = purchased
+    }
     
     func makeBody(configuration: Configuration) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            configuration.label
-                .font(.system(size: 24, weight: .semibold))
-                .foregroundColor(Color(labelColor))
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
+                configuration.label
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(Color(labelColor))
+                
+                configuration.content
+            }
+            .padding()
             
-            configuration.content
+            if purchased {
+                ZStack() {
+                    RoundedRectangle(cornerRadius: 0)
+                        .clipShape(
+                            RoundedCorners(
+                                tl: 0,
+                                tr: 0,
+                                bl: 16,
+                                br: 16
+                            )
+                        )
+                        .frame(height: 32)
+                        .foregroundStyle(Color("Prime"))
+                    Text("Purchased")
+                        .foregroundStyle(.white)
+                }
+            }
         }
-        .padding()
         .background(
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(Color(backgroundColor))
+            ZStack {
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(Color(backgroundColor))
+            }
         )
-        .opacity(opacity)
     }
 }
 
 extension GroupBoxStyle where Self == ObjectsGroupBoxStyle{
-    static var item: ObjectsGroupBoxStyle{ .init() }
+    static func item(purchased: Bool) -> ObjectsGroupBoxStyle{
+        .init(purchased: purchased)
+    }
+}
+
+fileprivate struct RoundedCorners: Shape {
+    var tl: CGFloat = 0
+    var tr: CGFloat = 0
+    var bl: CGFloat = 0
+    var br: CGFloat = 0
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.addRoundedRect(
+            in: rect,
+            cornerRadii: RectangleCornerRadii(
+                topLeading: tl,
+                bottomLeading: bl,
+                bottomTrailing: br,
+                topTrailing: tr
+            )
+        )
+        return path
+    }
 }
 
 #Preview {
@@ -85,7 +134,7 @@ extension GroupBoxStyle where Self == ObjectsGroupBoxStyle{
             product: "Mac Book Pro M4 Pro",
             price: 4200,
             score: 7.7,
-            purchased: false,
+            purchased: true,
             questions: Array<PurchaseQuestion>()
         )
     )

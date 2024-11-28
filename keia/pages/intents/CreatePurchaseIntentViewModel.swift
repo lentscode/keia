@@ -19,7 +19,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     /// The name of the product.
     @Published var product = ""
     /// The price (in `String`) of the product.
-    @Published var price = ""
+    @Published var price = 0.0
     
     /// Flag that enables the `CreationProcessView` sheet.
     @Published var isCreationProcessPresented: Bool = false
@@ -29,24 +29,15 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     @Published var purchase: PurchaseIntent? {
         didSet {
             if purchase != nil {
-                closeCreationAndOpenScore()
+                isCreationProcessPresented = false
+                isPurchaseScorePresented = true
             }
         }
     }
     
     /// Returns a boolean depending on wheter all fields of the form were compiled.
     var isComplete: Bool {
-        if product.isEmpty || price.isEmpty {
-            return false
-        }
-        
-        for question in questions {
-            if question.points == nil {
-                return false
-            }
-        }
-        
-        return true
+        !product.isEmpty && price != 0.0 && questions.allSatisfy { $0.points != nil }
     }
     
     init(questions: [Question]) {
@@ -63,23 +54,31 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     private func reset() {
         currentPage = 0
         product = ""
-        price = ""
+        price = 0.0
         isCreationProcessPresented = false
         isPurchaseScorePresented = false
         purchase = nil
         
-        for question in questions {
-            question.reset()
+        resetQuestions()
+    }
+    
+    private func resetQuestions() {
+        questions = questions.map { question in
+            var q = question
+            q.reset()
+            return q
         }
     }
     
     /// Sets the value of the `Question` at `index` using a value between 1 to 5.
     func evaluateQuestion(index: Int, value: Int) {
+        guard questions.indices.contains(index) else { return }
         questions[index].fromSlider(value)
     }
     
     /// Sets the value of the `Question` at `index` using a boolean.
     func evaluateQuestion(index: Int, value: Bool) {
+        guard questions.indices.contains(index) else { return }
         questions[index].fromBoolean(value)
     }
     
@@ -98,7 +97,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     func createPurchase() {
         purchase = PurchaseIntent(
             product: product,
-            price: Double(price) ?? 0,
+            price: price,
             score: 0,
             purchased: false,
             questions: questions

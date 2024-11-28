@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTab: View {
-    @State private var selection = 0
+    @State private var selection = 1
     
     var body: some View {
         TabView(selection: $selection) {
@@ -22,11 +22,6 @@ struct MainTab: View {
                     Label("History", systemImage: "clock")
                 }
                 .tag(1)
-            BlogView()
-                .tabItem {
-                    Label("Blog", systemImage: "newspaper")
-                }
-                .tag(2)
         }.tint(Color("Prime"))
     }
 }
