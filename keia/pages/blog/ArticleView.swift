@@ -1,18 +1,24 @@
 import SwiftUI
+import MarkdownUI
 
 struct ArticleView: View {
     
     let article: Article
     
     var body: some View {
-        Text("This blog is about  \(article.title)")
-            .font(.largeTitle.bold())
+        Markdown(article.text)
             .padding()
     }
 }
 
 #Preview {
     ArticleView(
-        article: Article(title: "Ciao", category: "Category", file: "Aidjiosad.md")
+        article: Article(
+            title: "Ciao",
+            category: "Category",
+            file: "",
+            text: "",
+            author: ""
+        )
     )
 }

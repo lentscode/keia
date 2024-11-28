@@ -14,7 +14,6 @@ struct ArticleCard: View {
             Image(article.file)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: .infinity)
                 .cornerRadius(8)
                 .foregroundColor(.white)
             
@@ -39,6 +38,6 @@ struct ArticleCard: View {
 }
 
 #Preview {
-    ArticleCard(article: Article(title: "Titolo di esempio", category: "Category", file: "d3"))
+    ArticleCard(article: Article(title: "Titolo di esempio", category: "Category", file: "d3", text: "", author: ""))
 }
 
