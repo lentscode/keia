@@ -16,7 +16,7 @@ struct ArticlesFundamentalsView: View {
             GroupBox{
                 ForEach(articles, id:\.id) { article in
                     HStack{
-                        VStack(){
+                        VStack{
                             Text(article.title)
                                 .bold()
                                 .font(.system(size: 20))
@@ -27,7 +27,7 @@ struct ArticlesFundamentalsView: View {
                         Spacer()
                         Image(article.image)
                             .resizable()
-                            .cornerRadius(10)
+                            .cornerRadius(15)
                             .frame(width: 125, height: 90)
                     }
                     Divider()
