@@ -1,7 +1,7 @@
 ---
 title: "The Emotional Toll of Financial Stress"
 author: "Antonio Lentini"
-category: "Economics"
+category: "Psychology"
 image: ""
 date: "2024-11-28T19:40:02Z"
 ---

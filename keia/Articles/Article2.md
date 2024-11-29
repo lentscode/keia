@@ -1,9 +1,9 @@
 ---
 title: "The Psychology of Luxury Purchases: What Drives Consumers to Invest in High-End Items?"
-author: ""
-category: ""
+author: "Antonio Lentini"
+category: "Psychology"
 image: ""
-date: ""
+date: "2024-11-20T16:00:00Z"
 ---
 
 Luxury fashion, defined by high-end products, iconic brands, and steep price tags, continues to captivate consumers even amid economic uncertainty. 
