@@ -38,5 +38,6 @@ extension View {
                     ]
                 )
             )
+            .environmentObject(HistoryViewModel())
     }
 }
