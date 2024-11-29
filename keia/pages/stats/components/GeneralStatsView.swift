@@ -91,12 +91,12 @@ extension GeneralStatsView {
     GeneralStatsView(
         purchases: [
             PurchaseIntent(
-                product: "MacBook Pro", price: 2000, score: 9.5, purchased: true
+                product: "MacBook Pro", price: 2000, score: 9.5, purchased: true, questions: Array<PurchaseQuestion>()
             ),
             PurchaseIntent(
-                product: "iPhone 15", price: 1200, score: 8.2, purchased: true),
+                product: "iPhone 15", price: 1200, score: 8.2, purchased: true,  questions: Array<PurchaseQuestion>()),
             PurchaseIntent(
-                product: "iPad Air", price: 800, score: 7.1, purchased: false),
+                product: "iPad Air", price: 800, score: 7.1, purchased: false,  questions: Array<PurchaseQuestion>()),
         ],
         report: .weekly,
         type: .savings
