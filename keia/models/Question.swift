@@ -33,7 +33,11 @@ struct Question: Identifiable {
     
     /// Assigns a value to ``points`` depending on a `Bool` value.
     mutating func fromBoolean(_ decision: Bool) {
-        points = decision ? 1 : 0
+        if reversed {
+            points = decision ? 0 : 1
+        } else {
+            points = decision ? 1 : 0
+        }
     }
     
     /// Assigns a value to ``points`` depending on a `Int` value.
@@ -42,7 +46,11 @@ struct Question: Identifiable {
             return
         }
         
-        points = Double(value) / 5.0
+        if reversed {
+            points = 1 - (Double(value) - 1) / 5.0
+        } else {
+            points = Double(value) / 5.0
+        }
     }
     
     /// Resets the ``points`` of a question.
