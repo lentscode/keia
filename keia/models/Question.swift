@@ -9,7 +9,7 @@ import Foundation
 
 /// Class representing a question asked to the user about a
 /// ``PurchaseIntent``.
-class Question: Identifiable, ObservableObject {
+struct Question: Identifiable {
     /// Unique id of the question.
     let id = UUID()
     /// The question itself.
@@ -20,32 +20,33 @@ class Question: Identifiable, ObservableObject {
     let isSlider: Bool
     /// In case the question accepts a value via a `Bool`,
     /// assigns a value of 1 to 'no' and 0 to 'yes'.
-    let reversed: Bool = false
+    let reversed: Bool
     /// The points assigned to the question depending on user answer.
-    @Published private(set) var points: Double?
+    private(set) var points: Double?
     
-    init(text: String, weight: Double, isSlider: Bool) {
+    init(text: String, weight: Double, isSlider: Bool, reversed: Bool = false) {
         self.text = text
         self.weight = weight
         self.isSlider = isSlider
+        self.reversed = reversed
     }
     
     /// Assigns a value to ``points`` depending on a `Bool` value.
-    func fromBoolean(_ decision: Bool) {
+    mutating func fromBoolean(_ decision: Bool) {
         points = decision ? 1 : 0
     }
     
     /// Assigns a value to ``points`` depending on a `Int` value.
-    func fromSlider(_ value: Int) {
+    mutating func fromSlider(_ value: Int) {
         guard value >= 1 && value <= 5 else {
             return
         }
-            
+        
         points = Double(value) / 5.0
     }
     
     /// Resets the ``points`` of a question.
-    func reset() {
+    mutating func reset() {
         points = nil
     }
 }

@@ -13,28 +13,32 @@ struct CreationProcessView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             TabView(selection: $vm.currentPage) {
-                Page(productName)
+                Page(
+                    VStack(spacing: 64) {
+                        productName
+                        productPrice
+                    }
+                )
                     .tag(0)
-                
-                Page(productPrice)
-                    .tag(1)
                 
                 ForEach(vm.questions.indices, id: \.self) { index in
                     Page(questionView(index: index))
-                        .tag(index + 2)
+                        .tag(index + 1)
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+            .tabViewStyle(
+                PageTabViewStyle(indexDisplayMode: .automatic)
+            )
             
-            Spacer()
-            
-            Button(action: {
-                vm.createPurchase()
-            }, label: {
-                Text("Confirm")
-            })
+            Button(
+                action: {
+                    vm.createPurchase()
+                }, label: {
+                    Text("Confirm")
+                        .padding(.horizontal)
+                        .padding(.vertical, 4)
+                })
             .cornerRadius(1000)
             .padding(.bottom, 32)
             .tint(Color("Prime"))
@@ -65,7 +69,7 @@ struct CreationProcessView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            TextField("0.0", text: $vm.price)
+            TextField("0.0", value: $vm.price, format: .currency(code: "USD"))
                 .keyboardType(.numbersAndPunctuation)
                 .multilineTextAlignment(.center)
                 .tint(Color("Prime"))
@@ -74,18 +78,16 @@ struct CreationProcessView: View {
     }
     
     @ViewBuilder private func questionView(index: Int) -> some View {
-        let question = vm.questions[index]
-        
         VStack {
-            Text(question.text)
+            Text(vm.questions[index].text)
                 .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            if question.isSlider {
-                QuestionValuePicker(question: question)
+            if vm.questions[index].isSlider {
+                QuestionValuePicker(question: $vm.questions[index])
             } else {
                 QuestionBinaryValuePicker(
-                    question: question
+                    question: $vm.questions[index]
                 )
             }
         }
@@ -100,11 +102,6 @@ struct CreationProcessView: View {
 #Preview {
     let questions: [Question] = [
         Question(text: "Text", weight: 0.9, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
-        Question(text: "Ciao", weight: 0.8, isSlider: true),
     ]
     
     let vm = CreatePurchaseIntentViewModel(questions: questions)

@@ -11,12 +11,7 @@ import SwiftUI
 /// - Parameters:
 ///     - question: the question to answer to.
 struct QuestionBinaryValuePicker: View {
-    @ObservedObject private var question: Question
-    
-    init(question: Question) {
-        self.question = question
-    }
-    
+    @Binding var question: Question
     
     var body: some View {
         HStack(spacing: 32) {
@@ -73,10 +68,12 @@ struct DynamicButtonStyle: PrimitiveButtonStyle {
 
 #Preview {
     QuestionBinaryValuePicker(
-        question: Question(
-            text: "Ciao",
-            weight: 8.3,
-            isSlider: false
+        question: .constant(
+            Question(
+                text: "Ciao",
+                weight: 8.3,
+                isSlider: false
+            )
         )
     )
 }
