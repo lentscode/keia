@@ -22,9 +22,9 @@ struct MainTab: View {
                     Label("History", systemImage: "clock")
                 }
                 .tag(1)
-            BlogView( )
+            InsightsView( )
                 .tabItem {
-                    Label("Blog", systemImage: "newspaper")
+                    Label("Insights", systemImage: "newspaper")
                 }
                 .tag(2)
         }
