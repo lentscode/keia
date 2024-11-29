@@ -11,22 +11,22 @@ struct GeneralStatsView: View {
     private let purchases: [PurchaseIntent]
     private let report: ChooseReport
     private let type: ChartType
-
+    
     init(purchases: [PurchaseIntent], report: ChooseReport, type: ChartType) {
         self.purchases = purchases
         self.report = report
         self.type = type
     }
-
+    
     var body: some View {
         VStack {
             Text(getMessage())
                 .font(.headline)
                 .foregroundColor(.gray)
-
+            
             Text("\(getValue(), specifier: "%.2f")")
                 .font(.system(size: 50, weight: .bold))
-                .foregroundColor(Color("Prime"))
+                .foregroundColor(getColor())
         }
     }
 }
@@ -63,13 +63,27 @@ extension GeneralStatsView {
             }
         }
     }
-
+    
     func getValue() -> Double {
         if type == .score {
+            guard purchases.count > 0 else { return 0.0 }
+            
             let totalScore = purchases.reduce(0, { $0 + $1.score })
             return totalScore / Double(purchases.count)
         }
+        
         return purchases.reduce(0, { $0 + $1.price })
+    }
+    
+    func getColor() -> Color {
+        return switch type {
+        case .score:
+                .blue
+        case .expense:
+                .red
+        case .savings:
+            Color("Prime")
+        }
     }
 }
 
@@ -84,9 +98,8 @@ extension GeneralStatsView {
             PurchaseIntent(
                 product: "iPad Air", price: 800, score: 7.1, purchased: false),
         ],
-
         report: .weekly,
-        type: .score
-
+        type: .savings
+        
     )
 }
