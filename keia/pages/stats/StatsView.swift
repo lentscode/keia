@@ -91,12 +91,18 @@ fileprivate struct StatsBodyView: View {
     }
     
     var body: some View {
-        PurchaseIntentsCharts(purchases: purchases, type: type, report: report)
-            .frame(height: 200)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 20)
-        
-        GeneralStatsView(purchases: purchases, report: report, type: type)
+        VStack {
+            PurchaseIntentsCharts(purchases: purchases, type: type, report: report)
+                .frame(height: 200)
+                .padding(.vertical, 20)
+            
+            GeneralStatsView(purchases: purchases, report: report, type: type)
+            
+            Divider()
+            
+            AdditionalStatsView(purchases: purchases, type: type)
+        }
+        .padding(.horizontal, 16)
     }
 }
 
