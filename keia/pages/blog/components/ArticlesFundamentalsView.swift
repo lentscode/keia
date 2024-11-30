@@ -40,18 +40,18 @@ struct ArticlesFundamentalsView: View {
 
 #Preview {
     ArticlesFundamentalsView(articles:[
-                            Article(title: "Articolo di prova",
-                                    category: "Prova",
-                                    image: "s2",
-                                    text: "",
-                                    author: "Autore",
-                                    date: Date()),
-                            Article(title: "Articolo di prova2",
-                                    category: "Prova",
-                                    image: "m2",
-                                    text: "",
-                                    author: "Autore",
-                                    date: Date())])
+        Article(title: "Articolo di prova",
+                category: "Prova",
+                image: "s2",
+                text: "",
+                author: "Autore",
+                date: Date()),
+        Article(title: "Articolo di prova2",
+                category: "Prova",
+                image: "m2",
+                text: "",
+                author: "Autore",
+                date: Date())])
 }
 
 
