@@ -20,6 +20,7 @@ class BlogService {
         var dict: [String: [Article]] = [:]
         
         var sortedArticles = articles
+        sortedArticles.sort(by: {$0.date > $1.date})
         
         if let filter {
             sortedArticles = sortedArticles.filter({$0.title.localizedStandardContains(filter)})
