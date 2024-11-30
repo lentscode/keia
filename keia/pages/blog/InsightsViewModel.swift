@@ -8,6 +8,40 @@
 import Foundation
 
 class InsightsViewModel: ObservableObject{
-    // code
+    private let insightsService: InsightsService
     
+    @Published private(set) var articleInEvidence: Article?
+    @Published var searchTerm = "" {
+        didSet {
+            if !searchTerm.isEmpty {
+                articles = insightsService.articles.filter({$0.title.localizedStandardContains(searchTerm)})
+            } else {
+                articles = insightsService.articles
+            }
+        }
+    }
+    @Published private(set) var articles: [Article]
+    @Published var categoryFocused: String? {
+        didSet {
+            if let categoryFocused {
+                articles = insightsService.articles.filter({$0.category == categoryFocused})
+            } else {
+                articles = insightsService.articles
+            }
+        }
+    }
+    
+    var categories: [String] {
+        insightsService.categories
+    }
+    
+    init(insightsService: InsightsService) {
+        self.insightsService = insightsService
+        
+        if let article = insightsService.articles.first {
+            articleInEvidence = article
+        }
+        
+        articles = insightsService.articles
+    }
 }

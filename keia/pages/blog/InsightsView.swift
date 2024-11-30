@@ -8,38 +8,32 @@
 import SwiftUI
 
 struct InsightsView: View {
-    
-    let sampleArticle = Article(
-        title: "Economy insights",
-        category: "Marketing",
-        image: "m3",
-        text: "Exploring the latest trends in marketing.",
-        author: "Francesco Romeo",
-        date: Date()
-    )
-    
-    @State private var searchTerm = ""
-    
+    @EnvironmentObject private var vm: InsightsViewModel
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                ArticleFirstPageView(
-                    article: sampleArticle,
-                    readMore: {
-                        print("Read More!")
-                    })
+                if let article = vm.articleInEvidence {
+                    ArticleInEvidenceView(
+                        article: article
+                    )
+                    .padding(.top, 16)
+                    .padding(.bottom, 32)
+                }
                 
-                TabBar(categories: ["All", "Tech", "Marketing", "IA","Daily News","Personal finances"])
-                Spacer()
+                InsightsTabBar()
             }
             .navigationTitle("Insights")
-            .searchable(text: $searchTerm, prompt: "Search")
-            
+            .searchable(text: $vm.searchTerm, prompt: "Search")
         }
     }
 }
 
 #Preview {
     InsightsView()
+        .environmentObject(
+            InsightsViewModel(
+                insightsService: InsightsService()
+            )
+        )
 }
