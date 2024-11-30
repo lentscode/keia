@@ -3,6 +3,7 @@ title: "Articolo di prova"
 author: "Autore"
 category: "Prova"
 image: ""
+date: "2024-11-24T16:00:00Z"
 ---
 
 # Lorem Ipsum
