@@ -22,7 +22,6 @@ struct InsightsTabBar: View {
                     }
                 }
             }
-            .padding(.horizontal)
         }
     }
 }
@@ -71,4 +70,5 @@ fileprivate enum TabValue {
 #Preview {
     InsightsTabBar()
         .environmentObject(InsightsViewModel(insightsService: InsightsService()))
+        .padding(.horizontal)
 }

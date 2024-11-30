@@ -49,8 +49,6 @@ struct ArticleInEvidenceView: View {
         .frame(height: 350)
         .cornerRadius(30)
         .shadow(radius: 16)
-        .padding(.horizontal)
-        
     }
 }
 
@@ -65,4 +63,5 @@ struct ArticleInEvidenceView: View {
             date: Date()
         )
     )
+    .padding(.horizontal)
 }

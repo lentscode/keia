@@ -22,7 +22,10 @@ struct InsightsView: View {
                 }
                 
                 InsightsTabBar()
+                
+                ArticlesListView()
             }
+            .padding(.horizontal)
             .navigationTitle("Insights")
             .searchable(text: $vm.searchTerm, prompt: "Search")
         }
