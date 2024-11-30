@@ -15,28 +15,32 @@ struct ArticlesListView: View {
             NavigationLink {
                 ArticleView(article: vm.articles[index])
             } label: {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(vm.articles[index].title)
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.black)
-                            .padding(.bottom, 4)
-                        Text(getDate(article: vm.articles[index]))
-                            .font(.footnote)
-                            .foregroundStyle( .gray)
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(vm.articles[index].title)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.black)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(2)
+                                .padding(.bottom, 4)
+                            Text(getDate(article: vm.articles[index]))
+                                .font(.footnote)
+                                .foregroundStyle( .gray)
+                        }
+                        Spacer()
+                        
+                        Image(vm.articles[index].image)
+                            .resizable()
+                            .cornerRadius(15)
+                            .frame(width: 125, height: 90)
                     }
-                    Spacer()
                     
-                    Image(vm.articles[index].image)
-                        .resizable()
-                        .cornerRadius(15)
-                        .frame(width: 125, height: 90)
-                }
-                
-                if index < vm.articles.count - 1 {
-                    Divider()
-                        .padding(.vertical, 4)
+                    if index < vm.articles.count - 1 {
+                        Divider()
+                            .padding(.vertical, 4)
+                    }
                 }
             }
         }

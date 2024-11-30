@@ -3,7 +3,7 @@ title: "How to Resist Marketing Manipulation: Key Strategies for Conscious Consu
 author: "Enzamaria Calandra"
 category: "Psychology"
 image: ""
-date: "2024-11-27T16:00:00"
+date: "2024-11-27T16:00:00Z"
 ---
 
 In today's world, marketing strategies have become increasingly sophisticated, often manipulating emotions and desires to influence consumer behavior. To avoid being swayed by these techniques, it's important to adopt a more conscious and critical approach to consumerism. 
