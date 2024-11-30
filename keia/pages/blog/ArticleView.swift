@@ -2,7 +2,6 @@ import SwiftUI
 import MarkdownUI
 
 struct ArticleView: View {
-    
     let article: Article
     
     var body: some View {

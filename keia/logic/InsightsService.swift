@@ -9,14 +9,21 @@ import Foundation
 import Yams
 import SwiftUI
 
-class BlogService {
-    private var articles: [Article] = []
+class InsightsService {
+    private(set) var articles: [Article] = []
+    private var articlesPerCategory: [String: [Article]]
     
     init() {
-        articles = loadArticles()
+        articles = Self.loadArticles()
+        
+        articlesPerCategory = Self.getArticlesByCategory(articles: articles)
     }
     
-    func getArticlesByCategory(where filter: String? = nil) -> [String: [Article]] {
+    var categories: [String] {
+        Array(articlesPerCategory.keys)
+    }
+    
+    static private func getArticlesByCategory(articles: [Article], where filter: String? = nil) -> [String: [Article]] {
         var dict: [String: [Article]] = [:]
         
         var sortedArticles = articles
@@ -33,9 +40,9 @@ class BlogService {
         return dict
     }
     
-    private func loadArticles() -> [Article] {
+    static private func loadArticles() -> [Article] {
         let fm = FileManager()
-
+        
         if let path = Bundle.main.resourcePath {
             do {
                 let articlePaths = try fm.contentsOfDirectory(atPath: path)
@@ -48,7 +55,7 @@ class BlogService {
                     let fullPath = (path as NSString).appendingPathComponent(articlePath)
                     
                     let metadata = getMetadata(filePath: fullPath)
-
+                    
                     let content = getContent(filePath: fullPath)
                     
                     if let metadata {
@@ -74,12 +81,12 @@ class BlogService {
         return []
     }
     
-    private func dateFromISOString(_ string: String) -> Date {
+    static private func dateFromISOString(_ string: String) -> Date {
         return ISO8601DateFormatter().date(from: string)!
     }
-
     
-    private func getMetadata(filePath: String) -> MarkdownMetadata? {
+    
+    static private func getMetadata(filePath: String) -> MarkdownMetadata? {
         do {
             let content = try String(contentsOfFile: filePath, encoding: .utf8)
             
@@ -97,7 +104,7 @@ class BlogService {
         return nil
     }
     
-    private func getContent(filePath: String) -> String {
+    static private func getContent(filePath: String) -> String {
         var content = ""
         do {
             let fileContent = try String(contentsOfFile: filePath, encoding: .utf8)
