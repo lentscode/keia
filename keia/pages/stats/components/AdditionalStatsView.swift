@@ -25,24 +25,30 @@ struct AdditionalStatsView: View {
         VStack(spacing: 12) {
             SingleStatComponent(
                 statistic: Text("\(service.getInstantReward(), format: .number)"),
-                text: "Instant Reward"
+                text: "Mean Instant Reward",
+                help: "Describes the instant utility and quality of the products you want to buy"
             )
             
             SingleStatComponent(
                 statistic: Text("\(service.getFutureValueFactor(), format: .number)"),
-                text: "Future Value Factor"
+                text: "Mean Future Value Factor",
+                help: "Describes the utility and quality in the future of the products you want to buy"
             )
             
             switch type {
             case .score:
                 SingleStatComponent(
                     statistic: Text("\(service.getMeanScore(), format: .number)"),
-                    text: "Mean Score"
+                    text: "Mean Score",
+                    help: "The mean score of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
                     statistic: Text("\(service.getMeanPrice(), format: .number)"),
-                    text: "Mean Price"
+                    text: "Mean Price",
+                    help: type == .expense
+                    ? "The mean price of your purchases"
+                    : "The mean price of your savings"
                 )
             }
             
@@ -50,12 +56,16 @@ struct AdditionalStatsView: View {
             case .score:
                 SingleStatComponent(
                     statistic: Text("\(service.getScoreTrend(), format: .percent)"),
-                    text: "Score Trend"
+                    text: "Score Trend",
+                    help: "Describes the increase/decrease in score of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
                     statistic: Text("\(service.getInstantReward(), format: .percent)"),
-                    text: type == .expense ? "Expense Trend" : "Save Trend"
+                    text: type == .expense ? "Expense Trend" : "Save Trend",
+                    help: type == .expense
+                    ? "Describes the increase/decrease in price of your purchases"
+                    : "Describes the increase/decrease in price of your savings"
                 )
             }
             
@@ -63,24 +73,30 @@ struct AdditionalStatsView: View {
             case .score:
                 SingleStatComponent(
                     statistic: Text("\(service.getScoreSTD(), format: .number)"),
-                    text: "Score Stability"
+                    text: "Score Stability",
+                    help: "Bigger the number, less stable are the scores of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
                     statistic: Text("\(service.getPriceSTD(), format: .number)"),
-                    text: type == .expense ? "Expense Stability" : "Save Stability"
+                    text: type == .expense ? "Expense Stability" : "Save Stability",
+                    help: type == .expense
+                    ? "Bigger the number, less stable are the prices of your purchases"
+                    : "Bigger the number, less stable are the prices of your savings"
                 )
             }
             
             if type == .expense {
                 SingleStatComponent(
                     statistic: Text("\(service.getPercentageAboveThreshold(), format: .percent)"),
-                    text: "Good Purchases"
+                    text: "Good Purchases",
+                    help: "The percentage of purchases with a score greater than 6.0"
                 )
                 
                 SingleStatComponent(
                     statistic: Text("\(service.getPercentageBelowThreshold(), format: .percent)"),
-                    text: "Bad Purchases"
+                    text: "Bad Purchases",
+                    help: "The percentage of purchases with a score less than 6.0"
                 )
             }
         }
