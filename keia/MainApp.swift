@@ -23,6 +23,7 @@ struct MainApp: App {
                     )
                 )
                 .environmentObject(HistoryViewModel())
+                .environmentObject(InsightsViewModel(insightsService: InsightsService()))
         }
     }
 }
