@@ -34,7 +34,15 @@ struct QuestionValuePicker: View {
     }
     
     func isValue(_ n: Int) -> Bool {
-        return Int((question.points ?? 0) * 5.0) == n
+        if question.points == nil {
+            return false
+        }
+        
+        if question.reversed {
+            return 6 - Int(5 * question.points!) == n
+        }
+        
+        return Int(question.points! * 5.0) == n
     }
 }
 

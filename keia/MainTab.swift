@@ -22,7 +22,12 @@ struct MainTab: View {
                     Label("History", systemImage: "clock")
                 }
                 .tag(1)
-        }.tint(Color("Prime"))
+            InsightsView( )
+                .tabItem {
+                    Label("Insights", systemImage: "newspaper")
+                }
+                .tag(2)
+        }
     }
 }
 

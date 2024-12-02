@@ -16,7 +16,7 @@ struct QuestionBinaryValuePicker: View {
     var body: some View {
         HStack(spacing: 32) {
             Button(action: {
-                question.fromBoolean(question.reversed)
+                question.fromBoolean(false)
             }) {
                 Text("No")
             }
@@ -25,7 +25,7 @@ struct QuestionBinaryValuePicker: View {
             .buttonStyle(noButtonStyle(for: question.points, reversed: question.reversed))
             
             Button(action: {
-                question.fromBoolean(!question.reversed)
+                question.fromBoolean(true)
             }) {
                 Text("Yes")
                     

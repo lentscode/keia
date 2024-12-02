@@ -24,13 +24,13 @@ struct AdditionalStatsView: View {
     var body: some View {
         VStack(spacing: 12) {
             SingleStatComponent(
-                statistic: Text("\(service.getInstantReward(), format: .number)"),
+                statistic: Text(service.getInstantReward().formatted(.number.precision(.fractionLength(2)))),
                 text: "Mean Instant Reward",
                 help: "Describes the instant utility and quality of the products you want to buy"
             )
             
             SingleStatComponent(
-                statistic: Text("\(service.getFutureValueFactor(), format: .number)"),
+                statistic: Text(service.getFutureValueFactor().formatted(.number.precision(.fractionLength(2)))),
                 text: "Mean Future Value Factor",
                 help: "Describes the utility and quality in the future of the products you want to buy"
             )
@@ -38,13 +38,13 @@ struct AdditionalStatsView: View {
             switch type {
             case .score:
                 SingleStatComponent(
-                    statistic: Text("\(service.getMeanScore(), format: .number)"),
+                    statistic: Text(service.getMeanScore().formatted(.number.precision(.fractionLength(2)))),
                     text: "Mean Score",
                     help: "The mean score of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
-                    statistic: Text("\(service.getMeanPrice(), format: .number)"),
+                    statistic: Text(service.getMeanPrice().formatted(.number.precision(.fractionLength(2)))),
                     text: "Mean Price",
                     help: type == .expense
                     ? "The mean price of your purchases"
@@ -55,13 +55,13 @@ struct AdditionalStatsView: View {
             switch type {
             case .score:
                 SingleStatComponent(
-                    statistic: Text("\(service.getScoreTrend(), format: .percent)"),
+                    statistic: Text(service.getScoreTrend().formatted(.percent.precision(.fractionLength(2)))),
                     text: "Score Trend",
                     help: "Describes the increase/decrease in score of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
-                    statistic: Text("\(service.getInstantReward(), format: .percent)"),
+                    statistic: Text(service.getPriceTrend().formatted(.percent.precision(.fractionLength(2)))),
                     text: type == .expense ? "Expense Trend" : "Save Trend",
                     help: type == .expense
                     ? "Describes the increase/decrease in price of your purchases"
@@ -72,13 +72,13 @@ struct AdditionalStatsView: View {
             switch type {
             case .score:
                 SingleStatComponent(
-                    statistic: Text("\(service.getScoreSTD(), format: .number)"),
+                    statistic: Text(service.getScoreSTD().formatted(.number.precision(.fractionLength(2)))),
                     text: "Score Stability",
                     help: "Bigger the number, less stable are the scores of your purchases/savings"
                 )
             case .expense, .savings:
                 SingleStatComponent(
-                    statistic: Text("\(service.getPriceSTD(), format: .number)"),
+                    statistic: Text(service.getPriceSTD().formatted(.number.precision(.fractionLength(2)))),
                     text: type == .expense ? "Expense Stability" : "Save Stability",
                     help: type == .expense
                     ? "Bigger the number, less stable are the prices of your purchases"
@@ -88,13 +88,13 @@ struct AdditionalStatsView: View {
             
             if type == .expense {
                 SingleStatComponent(
-                    statistic: Text("\(service.getPercentageAboveThreshold(), format: .percent)"),
+                    statistic: Text(service.getPercentageAboveThreshold().formatted(.percent.precision(.fractionLength(2)))),
                     text: "Good Purchases",
                     help: "The percentage of purchases with a score greater than 6.0"
                 )
                 
                 SingleStatComponent(
-                    statistic: Text("\(service.getPercentageBelowThreshold(), format: .percent)"),
+                    statistic: Text(service.getPercentageBelowThreshold().formatted(.percent.precision(.fractionLength(2)))),
                     text: "Bad Purchases",
                     help: "The percentage of purchases with a score less than 6.0"
                 )
@@ -133,7 +133,7 @@ fileprivate struct SingleStatComponent: View {
             Spacer()
             
             statistic
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.leading)
         }
