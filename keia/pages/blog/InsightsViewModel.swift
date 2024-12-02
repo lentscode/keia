@@ -38,10 +38,12 @@ class InsightsViewModel: ObservableObject{
     init(insightsService: InsightsService) {
         self.insightsService = insightsService
         
-        if let article = insightsService.articles.first {
+        articles = insightsService.articles
+        
+        articles.sort(by: {$0.date > $1.date})
+        
+        if let article = articles.first {
             articleInEvidence = article
         }
-        
-        articles = insightsService.articles
     }
 }

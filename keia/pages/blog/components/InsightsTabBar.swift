@@ -56,9 +56,7 @@ fileprivate struct TabElement: View {
         }
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            withAnimation(.easeIn) {
-                vm.categoryFocused = value
-            }
+            vm.categoryFocused = value
         }
     }
 }
