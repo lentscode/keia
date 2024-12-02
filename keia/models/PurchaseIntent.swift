@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+
 @Model
 /// Represents a wish of the user to buy something.
 class PurchaseIntent: Identifiable {
