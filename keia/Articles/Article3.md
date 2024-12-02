@@ -3,7 +3,7 @@ title: "The Concept of Necessities and Luxuries in Economics: Understanding Inco
 author: "Ylenia Dibilio"
 category: "Economy"
 image: "Necessities-Luxuries"
-date: "2024-11-24T16:00:00Z"
+date: "2024-12-02T16:00:00Z"
 ---
 
 In economics, goods can be categorized as either necessities or luxuries based on how their demand responds to changes in income. The degree to which the quantity demanded changes in response to an increase in income determines whether a good is considered essential or non-essential. 
