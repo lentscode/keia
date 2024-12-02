@@ -33,8 +33,10 @@ struct ArticlesListView: View {
                         
                         Image(vm.articles[index].image)
                             .resizable()
-                            .cornerRadius(15)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 125, height: 90)
+                            .cornerRadius(15)              
+                            .clipped()
                     }
                     
                     if index < vm.articles.count - 1 {
@@ -60,6 +62,6 @@ extension ArticlesListView{
 
 #Preview {
     ArticlesListView()
-    .padding(.horizontal)
-    .environmentObject(InsightsViewModel(insightsService: InsightsService()))
+        .padding(.horizontal)
+        .environmentObject(InsightsViewModel(insightsService: InsightsService()))
 }

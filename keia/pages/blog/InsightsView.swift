@@ -19,13 +19,16 @@ struct InsightsView: View {
                     )
                     .padding(.top, 16)
                     .padding(.bottom, 32)
+                    .padding(.horizontal)
                 }
                 
                 InsightsTabBar()
+                    .padding(.horizontal)
                 
                 ArticlesListView()
+                    .padding(.horizontal)
             }
-            .padding(.horizontal)
+            
             .navigationTitle("Insights")
             .searchable(text: $vm.searchTerm, prompt: "Search")
         }

@@ -64,7 +64,11 @@ struct PurchaseScoreView: View {
             
             Text("that is...")
                 .foregroundStyle(textColor)
-            Text("you could buy it")
+            Text(
+                purchase.score >= 6
+                ? "you could buy it"
+                : "you should save your money"
+            )
                 .foregroundStyle(textColor)
                 .fontWeight(.medium)
             
