@@ -2,7 +2,7 @@
 title: "The Rise of Conscious Consumption: A Shift Toward Ethical and Sustainable Purchases"
 author: "Francesco Romeo"
 category: "Lifestyle"
-image: ""
+image: "Sustainable-Consumption"
 date: "2024-11-26T16:00:00Z"
 ---
 

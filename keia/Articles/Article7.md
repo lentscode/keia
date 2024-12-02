@@ -2,7 +2,7 @@
 title: "Conscious, Subconscious, and Unconscious Consumer Behavior"
 author: "Arianna Carrabino"
 category: "Psychology"
-image: ""
+image: "Concious-Behaviour"
 date: "2024-11-24T16:00:00Z"
 ---
 

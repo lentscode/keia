@@ -2,7 +2,7 @@
 title: "The Psychology of Luxury Purchases: What Drives Consumers to Invest in High-End Items?"
 author: "Antonio Lentini"
 category: "Psychology"
-image: ""
+image: "Luxury-Purchases"
 date: "2024-11-20T16:00:00Z"
 ---
 

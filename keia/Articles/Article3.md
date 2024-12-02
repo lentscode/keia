@@ -2,7 +2,7 @@
 title: "The Concept of Necessities and Luxuries in Economics: Understanding Income Elasticity"
 author: "Ylenia Dibilio"
 category: "Economy"
-image: ""
+image: "Necessities-Luxuries"
 date: "2024-11-24T16:00:00Z"
 ---
 

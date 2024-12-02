@@ -2,7 +2,7 @@
 title: "How to Resist Marketing Manipulation: Key Strategies for Conscious Consumerism"
 author: "Enzamaria Calandra"
 category: "Psychology"
-image: ""
+image: "Marketing-Manipulation"
 date: "2024-11-27T16:00:00Z"
 ---
 

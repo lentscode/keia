@@ -2,7 +2,7 @@
 title: "FOMO in Marketing: Harnessing Urgency and Social Influence for Consumer Engagement"
 author: "Elisabetta Rinaldi"
 category: "Psychology"
-image: ""
+image: "FOMO"
 date: "2024-11-26T16:00:00Z"
 ---
 

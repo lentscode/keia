@@ -2,7 +2,7 @@
 title: "The Benefits and Risks of Conscious Consumerism for Brands and Consumers"
 author: "Miriam Listì"
 category: "Deep Dive"
-image: ""
+image: "Concious-Brands"
 date: "2024-11-28T16:00:00Z"
 ---
 

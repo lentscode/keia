@@ -2,7 +2,7 @@
 title: "The Cost Barrier to Sustainable Spending: Why Accessibility Remains a Major Obstacle"
 author: "Francesco Romeo"
 category: "Lifestyle"
-image: ""
+image: "Smart-Spending"
 date: "2024-11-28T16:00:00Z"
 ---
 
