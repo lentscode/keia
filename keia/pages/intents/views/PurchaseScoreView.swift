@@ -98,6 +98,7 @@ struct PurchaseScoreView: View {
                 .foregroundStyle(buttonColor)
                 .cornerRadius(1000)
                 .buttonStyle(.bordered)
+                .interactiveDismissDisabled()
             }
         }
         .frame(maxWidth: .infinity)

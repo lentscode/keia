@@ -64,7 +64,8 @@ struct HistoryView: View {
         .purchaseSheet(
             isCreationProcessPresented: $vm.isCreationProcessPresented,
             isPurchaseScorePresented: $vm.isPurchaseScorePresented,
-            purchase: vm.purchase
+            purchase: vm.purchase,
+            dismissAction: vm.reset
         )
         .sheet(isPresented: $hvm.purchaseIntentSheetOpen) {
             if let purchase = hvm.focusedPurchase {

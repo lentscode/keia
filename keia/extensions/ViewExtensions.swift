@@ -12,9 +12,10 @@ extension View {
     func purchaseSheet(
         isCreationProcessPresented: Binding<Bool>,
         isPurchaseScorePresented: Binding<Bool>,
-        purchase: PurchaseIntent?
+        purchase: PurchaseIntent?,
+        dismissAction: (() -> Void)? = nil
     ) -> some View {
-        sheet(isPresented: isCreationProcessPresented) {
+        sheet(isPresented: isCreationProcessPresented, onDismiss: dismissAction) {
             CreationProcessView()
         }
         .sheet(isPresented: isPurchaseScorePresented) {

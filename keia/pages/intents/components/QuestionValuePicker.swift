@@ -19,12 +19,20 @@ struct QuestionValuePicker: View {
         HStack(spacing: 16) {
             ForEach(1...5, id: \.self) {n in
                 Text("\(n)")
-                    .foregroundStyle(isValue(n) ? Color("Prime") : .black)
+                    .foregroundStyle(isValue(n) ? .white : .black)
                     .frame(width: 20, height: 20)
                     .padding()
                     .overlay {
-                        Circle()
-                            .stroke(isValue(n) ? Color("Prime") : .black, lineWidth: 2)
+                        if !isValue(n) {
+                            Circle()
+                                .stroke(.black, lineWidth: 2)
+                        }
+                    }
+                    .background {
+                        if isValue(n) {
+                            Circle()
+                                .foregroundStyle(Color("Prime"))
+                        }
                     }
                     .onTapGesture {
                         question.fromSlider(n)

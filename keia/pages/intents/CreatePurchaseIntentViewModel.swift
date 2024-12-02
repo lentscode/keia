@@ -51,7 +51,7 @@ class CreatePurchaseIntentViewModel: ObservableObject {
         }
     }
     
-    private func reset() {
+    func reset() {
         currentPage = 0
         product = ""
         price = 0.0
