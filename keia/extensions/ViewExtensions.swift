@@ -15,7 +15,14 @@ extension View {
         purchase: PurchaseIntent?,
         dismissAction: (() -> Void)? = nil
     ) -> some View {
-        sheet(isPresented: isCreationProcessPresented, onDismiss: dismissAction) {
+        sheet(
+            isPresented: isCreationProcessPresented,
+            onDismiss: {
+                if !isPurchaseScorePresented.wrappedValue {
+                    dismissAction?()
+                }
+            }
+        ) {
             CreationProcessView()
         }
         .sheet(isPresented: isPurchaseScorePresented) {
