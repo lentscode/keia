@@ -45,7 +45,7 @@ struct StatsView: View {
                         pvm.isCreationProcessPresented = true
                     }) {
                         Image(systemName: "plus.circle.fill")
-                            .font(.body)
+                            .font(.title3)
                             .foregroundColor(.prime)
                         
                     }

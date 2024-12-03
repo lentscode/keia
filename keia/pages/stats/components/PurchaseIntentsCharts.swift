@@ -62,9 +62,9 @@ extension PurchaseIntentsCharts {
 }
 
 enum ChartType: String, CaseIterable {
-    case score = "Score"
-    case expense = "Expenses"
     case savings = "Savings"
+    case expense = "Expenses"
+    case score = "Score"
 }
 
 #Preview {

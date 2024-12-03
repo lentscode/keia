@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 /// View that shows all the questions leading to the creation of a `PurchaseIntent`.
 struct CreationProcessView: View {
@@ -69,11 +70,13 @@ struct CreationProcessView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            TextField("0.0", value: $vm.price, format: .currency(code: "USD"))
-                .keyboardType(.numbersAndPunctuation)
-                .multilineTextAlignment(.center)
-                .tint(Color("Prime"))
-                .font(.title2)
+//            TextField("0.0", value: $vm.price, format: .currency(code: "USD"))
+//                .keyboardType(.decimalPad)
+//                .multilineTextAlignment(.center)
+//                .tint(Color("Prime"))
+//                .font(.title2)
+            CurrencyTextField("Price", value: $vm.price, currencySymbol: "$", textAlignment: .center)
+                .font(.largeTitle)
         }
     }
     

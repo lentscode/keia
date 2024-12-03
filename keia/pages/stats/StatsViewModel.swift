@@ -16,7 +16,7 @@ enum ChooseReport: String, CaseIterable{
 
 class StatsViewModel: ObservableObject {
     @Published var report: ChooseReport = .weekly
-    @Published var type: ChartType = .score
+    @Published var type: ChartType = .savings
 }
 
 extension StatsViewModel {

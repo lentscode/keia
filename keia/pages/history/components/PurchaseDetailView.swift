@@ -10,6 +10,7 @@ import SwiftUI
 struct PurchaseDetailView: View {
     @Environment(\.modelContext) private var context
     @EnvironmentObject private var hvm: HistoryViewModel
+    @State private var dialog = false
     
     let purchase: PurchaseIntent
     
@@ -70,14 +71,27 @@ struct PurchaseDetailView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        context.delete(purchase)
-                        hvm.focusedPurchase = nil
+                        dialog = true
                     }) {
                         Image(systemName: "trash")
-                            .foregroundColor(.black)
+                            .foregroundColor(.red)
                             .imageScale(.medium)
                     }
                 }
+            }
+            .confirmationDialog(
+                "Delete purchase",
+                isPresented: $dialog,
+                presenting: purchase
+            ) { detail in
+                Button(role: .destructive) {
+                    context.delete(detail)
+                    hvm.focusedPurchase = nil
+                } label: {
+                    Text("Delete")
+                }
+            } message: { detail in
+                Text("Do you really want to delete \(detail.product)?")
             }
         }
     }

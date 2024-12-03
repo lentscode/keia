@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1743652D2CF45CFA00CE90A3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 1743652C2CF45CFA00CE90A3 /* Yams */; };
 		179DDB482CF8C33300C33754 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 179DDB472CF8C33300C33754 /* MarkdownUI */; };
+		17A12B802CFE0A8600C036DE /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17A12B7F2CFE0A8600C036DE /* SwiftUIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1743652D2CF45CFA00CE90A3 /* Yams in Frameworks */,
+				17A12B802CFE0A8600C036DE /* SwiftUIKit in Frameworks */,
 				179DDB482CF8C33300C33754 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,7 @@
 			packageProductDependencies = (
 				1743652C2CF45CFA00CE90A3 /* Yams */,
 				179DDB472CF8C33300C33754 /* MarkdownUI */,
+				17A12B7F2CFE0A8600C036DE /* SwiftUIKit */,
 			);
 			productName = "afp-app";
 			productReference = 17BCDC162CE3D74B00335BCD /* keia.app */;
@@ -207,6 +210,7 @@
 			packageReferences = (
 				1743652B2CF45CFA00CE90A3 /* XCRemoteSwiftPackageReference "Yams" */,
 				179DDB462CF8C33300C33754 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				17A12B7E2CFE0A8600C036DE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 17BCDC172CE3D74B00335BCD /* Products */;
@@ -589,6 +593,14 @@
 				minimumVersion = 2.4.1;
 			};
 		};
+		17A12B7E2CFE0A8600C036DE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youjinp/SwiftUIKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -601,6 +613,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 179DDB462CF8C33300C33754 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
 			productName = MarkdownUI;
+		};
+		17A12B7F2CFE0A8600C036DE /* SwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17A12B7E2CFE0A8600C036DE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			productName = SwiftUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

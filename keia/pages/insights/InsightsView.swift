@@ -13,17 +13,19 @@ struct InsightsView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                if let article = vm.articleInEvidence {
-                    ArticleInEvidenceView(
-                        article: article
-                    )
-                    .padding(.top, 16)
-                    .padding(.bottom, 32)
-                    .padding(.horizontal)
+                if vm.searchTerm.isEmpty {
+                    if let article = vm.articleInEvidence {
+                        ArticleInEvidenceView(
+                            article: article
+                        )
+                        .padding(.top, 16)
+                        .padding(.bottom, 32)
+                        .padding(.horizontal)
+                    }
+                    
+                    InsightsTabBar()
+                        .padding(.horizontal)
                 }
-                
-                InsightsTabBar()
-                    .padding(.horizontal)
                 
                 ArticlesListView()
                     .padding(.horizontal)
