@@ -55,6 +55,7 @@ struct HistoryView: View {
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(Color("Prime"))
+                                .font(.title3)
                         })
                     }
                 }
