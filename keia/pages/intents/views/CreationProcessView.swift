@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIKit
 
 /// View that shows all the questions leading to the creation of a `PurchaseIntent`.
 struct CreationProcessView: View {
@@ -21,7 +20,7 @@ struct CreationProcessView: View {
                         productPrice
                     }
                 )
-                    .tag(0)
+                .tag(0)
                 
                 ForEach(vm.questions.indices, id: \.self) { index in
                     Page(questionView(index: index))
@@ -66,17 +65,15 @@ struct CreationProcessView: View {
     
     private var productPrice: some View {
         VStack {
-            Text("How much does it cost?")
-                .font(.title)
+            Text("How much does it cost? ($)")
+                .font(.system(size: 26))
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-//            TextField("0.0", value: $vm.price, format: .currency(code: "USD"))
-//                .keyboardType(.decimalPad)
-//                .multilineTextAlignment(.center)
-//                .tint(Color("Prime"))
-//                .font(.title2)
-            CurrencyTextField("Price", value: $vm.price, currencySymbol: "$", textAlignment: .center)
-                .font(.largeTitle)
+                TextField("0.0", value: $vm.price, formatter: formatter)
+                    .keyboardType(.decimalPad)
+                    .multilineTextAlignment(.center)
+                    .tint(Color("Prime"))
+                    .font(.title2)
         }
     }
     
@@ -100,6 +97,15 @@ struct CreationProcessView: View {
         content
             .padding([.leading, .trailing], 32)
     }
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        return formatter
+    }()
 }
 
 #Preview {
