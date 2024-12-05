@@ -118,6 +118,9 @@ extension PurchaseDetailView {
     
     func getPointForQuestion(question: PurchaseQuestion) -> String {
         if question.isSlider {
+            if question.reversed {
+                return "\(6 - 5 * question.points)"
+            }
             return "\((question.points) * 5)"
         }
         return question.points == 1 ? "Yes" : "No"

@@ -47,7 +47,9 @@ struct Question: Identifiable {
         }
         
         if reversed {
-            points = 1 - (Double(value) - 1) / 5.0
+            let decimalPoints = 1 - (Double(value) - 1.0) / 5.0
+            let roundedPoints = round(decimalPoints * 100) / 100
+            points = roundedPoints
         } else {
             points = Double(value) / 5.0
         }

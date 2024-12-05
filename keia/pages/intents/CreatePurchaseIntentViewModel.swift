@@ -95,6 +95,8 @@ class CreatePurchaseIntentViewModel: ObservableObject {
     
     /// Creates a `PurchaseIntent` object and puts it inside `purchase`.
     func createPurchase() {
+        questions.sort(by: {$0.text < $1.text})
+        
         purchase = PurchaseIntent(
             product: product,
             price: price!,
