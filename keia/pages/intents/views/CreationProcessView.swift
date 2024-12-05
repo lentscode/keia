@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 /// View that shows all the questions leading to the creation of a `PurchaseIntent`.
 struct CreationProcessView: View {
@@ -65,15 +66,18 @@ struct CreationProcessView: View {
     
     private var productPrice: some View {
         VStack {
-            Text("How much does it cost? ($)")
-                .font(.system(size: 26))
+            Text("How much does it cost?")
+                .font(.title)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-                TextField("0.0", value: $vm.price, formatter: formatter)
-                    .keyboardType(.decimalPad)
-                    .multilineTextAlignment(.center)
-                    .tint(Color("Prime"))
-                    .font(.title2)
+            CurrencyTextField(
+                "Price",
+                value: $vm.price,
+                numberOfDecimalPlaces: 2,
+                currencySymbol: "$",
+                font: .systemFont(ofSize: 24),
+                textAlignment: .center
+            )
         }
     }
     
